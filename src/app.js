@@ -1,0 +1,121 @@
+
+$(function () {
+
+  // OPEN / CLOSE BLOCS
+   $('.title').on('click', function() {
+      var bloc = $(this).closest(".formulaire-bloc");
+      if ($(bloc).hasClass('active')) {
+        $(bloc).removeClass("active");
+      } else {
+        $(bloc).addClass('active');
+      }
+    });
+
+  // RECUPERATION DES INFOS DEMANDEES
+  var typeFiche = (window.location.search).replace('?', '').split('&');
+  if ((typeFiche[0].split('='))[1] == 'PREDEFINI') {
+      // FICHE PREDEFINI
+      $('#formulaire-joueur').remove();
+      $('#title-formulaire-histoire').innerHTML = 'Points d\'histoire';
+      typeFiche = (typeFiche[0].split('='))[1];
+  } else if ((typeFiche[0].split('='))[1] == 'PNJ') {
+      // FICHE PNJ
+      $('#formulaire-joueur').remove();
+      $('#title-formulaire-histoire').innerHTML = 'Détails du personnage';
+      $('#formulaire').remove();
+      typeFiche = (typeFiche[0].split('='))[1];
+  } else {
+      // FICHE JOUEUR
+      $('#formulaire-liens').remove();
+      typeFiche = 'PERSONNAGE';
+  }
+
+  $('h1').text(`GENERATEUR DE FICHE ${typeFiche}`)
+
+  // SWITCH INFORMATIONS FACTIONS
+  var valGroup = $('#champ_sous_groupe').find(":selected").val();
+  $('#champ_politique').on('change', function() {
+    valGroup = $(this).find(":selected").val();
+    $('#faction-description>span').css("display", 'none');
+    $(`#info-${valGroup}`).css("display", 'block');
+  });
+
+  // SWITCH INFORMATIONS GROUPES
+  $('#champ_sous_groupe').on('change', function() {
+    var value = $(this).find(":selected").val();
+    $('#groupe-description>span').css("display", 'none');
+    $(`#info-${value}`).css("display", 'block');
+  });
+
+
+  // DISPLAY INFORMATIONS POUVOIR
+  $('#champ_alteration').on('change', function() {
+    if ($(this).is(":checked")) {
+     $('#formulaire-pouvoir-bloc').css("display", 'block');
+    } else {
+     $('#formulaire-pouvoir-bloc').css("display", 'none');
+    }
+  });
+
+  // ADD NEW LINK
+  var lengthLinks = 0;
+  $('#add-link').on('click', function() {
+      lengthLinks = lengthLinks  + 1;
+      $("#formSujetLink").append(`<div class="current-link"><div id="block-link-${lengthLinks}"><div class="firstline"><label id="label-link-${lengthLinks}" for="link-${lengthLinks}">Personnage</label><input type="text" value="" id="link-${lengthLinks}" name="link-${lengthLinks}" /><br/><label id="label-img-link-${lengthLinks}" for="link-${lengthLinks}">Image du personnage</label><input type="text" value="" id="img-link-${lengthLinks}" name="img-link-${lengthLinks}" /><input type="button" value="x" id="delete-link-${lengthLinks}" class="remove-link" /></div><br/><textarea id="desc-link-${lengthLinks}" name="${lengthLinks}"></textarea></div></div>`);
+
+      // DELETE CURRENT LINK WHEN BUTTON PRESSED
+      $(`#delete-link-${lengthLinks}`).on('click', function(event) {
+        $(this).closest(".current-link").remove();
+      });
+  });
+
+  // GENERATION FICHE
+  $("#genererFiche").on('click', function(){
+
+    // IDENTITE
+    var identity ;
+    if (typeFiche == 'PNJ') {
+      identity = `<div class="box-predef-container"><div class="sujets-box-infos-predef"><div class="sujets-title-predef ${valGroup}">${$("#champ_prenom").val()} ${$("#champ_nom").val()}.</div><div class="sujets-content"><div class="box-predef"><div class="box-1-predef"><img src="${$("#image_perso").val()}"/></div><div class="box-2-predef"><span class= ${valGroup}">Age ×</span>  ${$("#champ_age").val()}<br/><span class= ${valGroup}">Genre ×</span> ${$("#champ_genre").val()}<br\><span class= ${valGroup}">Nationalité / Origines ×</span> ${$("#champ_origines").val()}<br/><span class= ${valGroup}">Statut civil ×</span> ${$("#champ_statut").val()}<br\><span class= ${valGroup}">Emploi ×</span> ${$("#champ_job").val()}<br\><span class= ${valGroup}">Inclinaison politique ×</span> ${$('#champ_politique').find(":selected").text()}<br\><span class= ${valGroup}">Sous-groupe ×</span> ${$('#champ_sous_groupe').find(":selected").text()}</div></div></div></div>`;
+    } else {
+      identity = `<div class="box-predef-container"><div class="sujets-box-infos-predef"><div class="sujets-title-predef ${valGroup}">${$("#champ_prenom").val()} ${$("#champ_nom").val()}.</div><div class="sujets-content"><div class="box-predef"><div class="box-1-predef"><img src="${$("#image_perso").val()}"/></div><div class="box-2-predef"><span class="${valGroup}">Nom ×</span> ${$("#champ_nom").val()}<br\><span class="${valGroup}">Prénom ×</span> ${$("#champ_prenom").val()}<br/><span class="${valGroup}">Age ×</span> ${$("#champ_age").val()}<br/><span class="${valGroup}">Genre ×</span> ${$("#champ_genre").val()}<br\><span class="${valGroup}">Nationalité / Origines ×</span> ${$("#champ_origines").val()}<br/><span class="${valGroup}">Statut civil ×</span> ${$("#champ_statut").val()}<br\><span class="${valGroup}">Emploi ×</span> ${$("#champ_job").val()}<br\><span class="${valGroup}">Inclinaison politique ×</span> ${$('#champ_politique').find(":selected").text()}<br\><span class="${valGroup}">Sous-groupe ×</span> ${$('#champ_sous_groupe').find(":selected").text()}<br\><span class="${valGroup}">Feat ×</span> ${$("#champ_personnage").val()}</div></div></div></div>`;
+    }
+
+    // POUVOIR
+    var pouvoir = "";
+    if($('#champ_alteration').is(":checked")) {
+      pouvoir = `<div class="sujets-box-predef-lng"><div class="sujets-title-predef-part">pouvoir.</div><div class="sujets-content"><span class="${valGroup}">${$('#champ_nom_pouvoir').val()} ×</span> ${$('#champ_effet_pouvoir').val()}<br/><span class="${valGroup}">Effets secondaires ×</span> ${$('#champ_effets_secondaire').val()}</div></div>`;
+    }
+
+    // PHYSIQUE ET MENTAL
+    var descriptions ;
+    if (typeFiche == 'PERSONNAGE' || typeFiche == 'PREDEFINI') {
+        descriptions = `<div class="sujets-box-predef-column"><div class="sujets-box-predef"><div class="sujets-title-predef-part">physique.</div><div class="sujets-content"> ${$("#champ_physique").val()}</div></div><div class="sujets-box-predef"><div class="sujets-title-predef-part">mental.</div><div class="sujets-content"> ${$("#champ_mental").val()}</div></div></div>`;
+          descriptions = descriptions.replaceAll('val_groupe', $('#champ_sous_groupe').find(":selected").val())
+    }
+
+    // DERNIERS BLOCS
+    var histoire, player, links;
+    if (typeFiche == 'PERSONNAGE') {
+        histoire = `<div class="sujets-box-predef-lng"><div class="sujets-title-predef-part">histoire.</div><div class="sujets-content">${$("#champ_histoire").val()}</div></div>`;
+        player = `<div class="sujets-box-predef-lng"><div class="sujets-title-predef-part">derrière l\'écran.</div><div class="sujets-content"><span class="${valGroup}">Parle nous un peu de toi (si tu as envie !) ×</span> ${$("#champ_question_joueur_1").val()}<br/><span class="${valGroup}">Comment nous as-tu trouvé ×</span> ${$("#champ_question_joueur_2").val()}<br/><span class="${valGroup}">Autre chose ? ×</span>${$("#champ_question_joueur_3").val()}</div></div>`;
+    } else {
+        histoire = `<div class="sujets-box-predef-column"><div class="sujets-box-predef"><div class="sujets-title-predef-part">points d\'histoire.</div><div class="sujets-content">${$("#champ_histoire").val()}</div></div>`
+        links = `<div class="sujets-box-predef"><div class="sujets-title-predef-part">liens.</div><div class="sujets-content">` ;
+
+       for (var i = 1 ; i <= lengthLinks ; i++) {
+          if ($("#link-" + i) != null) {
+          links += `<div><div class="links-predef"><img alt="" src="${$("#img-link-" + i).val()}" style="width : 60px ; border-radius : 100px ;"/></div><div class="inks-text-predef"><div class="GLOBTexte"><span class="CORPSTextT">${$("#link-" + i).val()} × <span>${ $("#desc-link-" + i).val()}</span></span></div></div>`;
+          }
+        }
+       links += `</div></div></div>`;
+    }
+
+    if (typeFiche == 'PERSONNAGE') {
+      $("#area").html(`<textarea name="genCode" id="genCode">${identity}${pouvoir}${descriptions}${histoire}${player}</textarea>`);
+    } else {
+      $("#area").html(`<textarea name="genCode" id="genCode">${identity}${pouvoir}${descriptions}${histoire}${links}</textarea>`);
+    }
+
+  });
+
+});

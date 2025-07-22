@@ -1,0 +1,181 @@
+
+h1 {
+  text-align: center;
+  font-size:40px;
+  font-family: 'Bebas Neue', cursive;
+  margin:0;
+}
+
+h3 {
+  text-align: center;
+  font-family: 'Calibri';
+  text-transform:uppercase;
+  font-size : 18px;
+  margin:0;
+}
+
+.form-top {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+  .formulaire-bloc {
+      border: #bbbbbb solid 5px;
+      border-radius: 3px;
+      margin: auto;
+      width: 720px;
+      font-family: 'Calibri';
+      margin-bottom: 10px;
+
+      &.active {
+        .form-sujet-content {
+          display:block !important;
+        }
+
+        & .title {
+          span::before {
+            content : ">";
+            margin-right : 10px;
+          }
+        }
+      }
+
+      .form-sujet-content {
+        display:none;
+      }
+    
+      .title {
+        height: 40px;
+        text-align: right;
+        background: #3f4463;
+        color: #c3cce3;
+        font-family: 'Bebas Neue', cursive;
+        font-size: 35px;
+        padding-right: 15px;
+    }
+  }
+
+  .textarea-description-little {
+    width : 95%;
+    height : 200px;
+  }
+
+  .textarea-description {
+    width : 95%;
+    height : 200px;
+  }
+}
+
+
+#genCode {
+    width: 720px;
+    height: 500px;
+}
+
+#area {
+    width: 720px;
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+.form-sujet-content {
+    font-size: 12px;
+    color: #121212;
+    padding-right: 10px;
+    overflow: auto;  
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    text-align: justify;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;  
+}
+
+label {
+    font-size: 15px;
+    margin-left: 20px;  
+    margin-top: 10px; 
+    width: 160px;
+    float: left;
+}
+
+
+div#formulaire-joueur label {
+    width : 300px;
+}
+
+input,
+select {
+    width: 300px;
+    border: #bbbbbb solid 3px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    height: 30px;  
+    margin-top: 5px;
+}
+
+
+div#formulaire-identity #champ_alteration {
+    width : unset;
+}
+
+textarea {
+    border: #bbbbbb solid 3px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    resize: none;
+    height: 200px;
+}
+
+div#formulaire input#generer {
+    margin-top: 10px;
+    font-variant: small-caps;
+    font-style: normal;
+    font-weight: bold;
+    background-color: #ae5545;
+}
+
+.textarea-infos-joueur {
+    height: 145px;
+}
+
+#info-citizen,
+#info-engineers,
+#info-mre, 
+#info-citizens,
+#info-sociis, 
+#info-officials {
+    display : none;
+}
+
+#faction-description,
+#groupe-description {
+   font-size : 13px;
+}
+
+#form-group,
+#form-faction {
+   display: flex;
+   flex-direction : row;
+}
+
+#add-link {
+   width : 150px !important;
+   margin-left : 10px;
+}
+
+#champ_politique, 
+#champ_sous_groupe {
+  width : 270px !important;
+}
+
+#formSujetLink textarea {
+  height: 50px;
+  width : 100%;
+}
+
+.textarea-pouvoir > textarea, .formulaire-joueur > textarea {
+  height : 70px !important;
+}

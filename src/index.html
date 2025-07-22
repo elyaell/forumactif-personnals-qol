@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- GENERATEUR DE FICHE DEVELOPPE PAR ELYAELL (https://github.com/elyaell) -->
+  <!-- VERSION 1.0 - 22/07/2025 -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet" /> 
+    <link rel="stylesheet" href="style.css">
+  
+</head>
+
+<body>
+
+<div class="form-top">
+
+  <h1></h1>
+
+  <div id="formulaire-identity" class="formulaire-bloc">
+    <!-- PREMIERE PARTIE -->
+    <div class="title"><span>état civil du personnage</span></div>
+
+    <div class="form-sujet-content">
+
+      <!-- INFO ETAT CIVIL -->
+      <div><label id="label_image_perso" for="image_perso">Image (200*200) </label><input type="text" value="" id="image_perso" name="image_perso"/></div>
+      <div><label id="label_nom" for="champ_nom">Nom </label><input type="text" value="" id="champ_nom" name="champ_nom"/></div>
+      <div><label id="label_prenom" for="champ_prenom">Prénom(s) </label><input type="text" value="" id="champ_prenom" name="champ_prenom"/></div>
+      <div><label id="label_age" for="champ_age">Date de naissance / Âge </label><input type="text" value="" id="champ_age" name="champ_age"/></div>
+      <div><label id="label_genre" for="champ_genre">Genre </label><input type="text" value="" id="champ_genre" name="champ_genre" /></div>
+      <div><label id="label_origines" for="champ_origines">Nationalité / Origines </label><input type="text" value="" id="champ_origines" name="champ_origines" /></div>
+      <div><label id="label_statut" for="champ_statut">Statut civil </label><input type="text" value="" id="champ_statut" name="champ_statut" /></div>
+      <div><label id="label_job" for="champ_job">Emploi </label><input type="text" value="" id="champ_job" name="champ_job" /></div>
+      <div><input type="checkbox" id="champ_alteration" name="champ_alteration" checked="" /><label  id="label_alteration" for="champ_alteration">A un pouvoir</label></div>
+      <!-- FIN INFO ETAT CIVIL -->
+
+
+      <!-- INFO FACTION -->
+      <div>
+        <label id="label_politique" for="champ_politique">Inclinaison politique</label>
+        <form name="list-groupe" id="form-faction">
+          <select name="champ_politique" id="champ_politique">
+            <option value="searsmont">Voie des Etoiles</option>
+            <option value="citizens">Neutre</option>
+            <option value="mre">Mouvement pour la régulation des altérés</option>
+            <option value="sociis">Sociis</option> <option value="officials">Services Publics</option>
+          </select>  
+        </form>
+        <div id="faction-description">
+          <span id="info-searsmont">La <span style="color: #409cbd; font-weight: bold">Voie des Etoiles </span> est à mi-chemin entre mouvement mystique et religion new-age, basant leurs croyances sur la théorie des flux étoilés et la supériorité des altérés. (<a target="_blank" href="https://chronicles.forumeiros.com/t1380-factions-x-politiquement-et-humainement-engage">en savoir plus...</a>)</span> 
+          <span id="info-sociis"><span style="color: #169c60; font-weight: bold">Sociis</span> était jusqu'à présent considérée plus comme un regroupement d'associations de quartier ; le genre d'affiliation par des rêveurs pour des rêveurs, dont le but est de trouver un moyen de cohabitation entre altérés et non-altérés, refusant l'idée qu'un schisme soit inévitable. Depuis peu, ils grimpent sur la scène politique, entrainés par leur leader, Silken Anderson (<a target="_blank" href="https://chronicles.forumeiros.com/t1380-factions-x-politiquement-et-humainement-engage">en savoir plus...</a>)</span> 
+          <span id="info-mre">Le<span style="color : #991919; font-weight: bold"> mouvement pour la régulation des altérés</span> est un mouvement politique radical, militant pour un contrôle plus strict des altérés, voire extrémiste selon certains. S'il serait facile de les classifier comme radicaux, ils ont néanmoins des arguments raisonnables concernant le contrôle des altérés, appuyés par chaque nouvel incident impliquant un individu perdant le contrôle ou subissant le contrecoup de son pouvoir....  (<a target="_blank" href="https://chronicles.forumeiros.com/t1380-factions-x-politiquement-et-humainement-engage">en savoir plus...</a>)</span> 
+          <span id="info-officials">Les <span style="color : #4A1DA3; font-weight: bold">services publics</span> se réfèrent non seulement aux dirigeants eux-même, mais également aux personnes travaillant dans la police ou toute autre infrastructure directement gérée par le gouvernement. Ils n'ont clairement pas un travail aisé, tiraillé entre les demandes du publics et des établissements privés...  (<a target="_blank" href="https://chronicles.forumeiros.com/t1380-factions-x-politiquement-et-humainement-engage">en savoir plus...</a>) </span>  
+          <span id="info-citizens">Les citoyens <span style="color : #F09839; font-weight: bold">neutres</span> sont tout simplement les citoyens qui ne s'impliquent pas spécialement avec un groupe ou un autre, bien trop occupé à vivre leur vie pour se préoccuper de politique... (<a target="_blank" href="https://chronicles.forumeiros.com/t1380-factions-x-politiquement-et-humainement-engage">en savoir plus...</a>) </span>
+        </div>
+      </div>
+      <!-- FIN INFO FACTION -->
+
+
+      <!-- INFO GROUPE -->
+      <div>
+        <label id="label_sous-groupe" for="champ_sous_groupe">Sous-Groupe</label>
+        <form name="list-groupe" id="form-group">
+          <select name="champ_sous_groupe" id="champ_sous_groupe"> 
+            <option value="eraser">Régulateurs</option> 
+            <option value="citizen">Citoyen</option>
+            <option value="engineers">Ingénieurs</option>
+          </select>
+        </form>
+        <div id="groupe-description">
+          <span id="info-eraser">Les <span style="color: #991919; font-weight: bold">régulateurs</span> sont théoriquement la force spécialisée de la ville dans la gestion de crime ou d'accident impliquant les altérés. En réalité, ils tendent de plus en plus à marcher sur les plates-bandes de la police locale, qui vit assez mal cette intrusion dans ses prérogatives. (<a target="_blank" href="https://chronicles.forumeiros.com/t1381-groupes-x-nature-ou-culture">en savoir plus...)</a></span>  
+          <span id="info-citizen">Les <span style="color : #169c60; font-weight: bold">citoyens </span>sont les individus n'ayant ni pouvoir, ni job particulier... (<a target="_blank" href="https://chronicles.forumeiros.com/t1381-groupes-x-nature-ou-culture">en savoir plus...</a>) </span> 
+          <span id="info-engineers">Les <span style="color : #F09839; font-weight: bold">ingénieurs</span> sont les personnes qui travaillent avec les altérés ou la technologie, quelque soit leur spécialité. Ils ont un statut un peu à part à Madison, pouvant se permettre des écarts qui sont plus ou moins "admis" au nom de l'avancement de la recherche. (<a target="_blank" href="https://chronicles.forumeiros.com/t1381-groupes-x-nature-ou-culture">en savoir plus...</a>)  </span>  
+        </div>
+      </div>
+      <!-- FIN INFO GROUPE -->
+
+    </div>
+      <!-- FIN PREMIERE PARTIE -->
+  </div>
+
+  <div id="formulaire-joueur" class="formulaire-bloc">
+    <!-- SECONDE PARTIE : JOUEUR -->
+    <div class="title"><span>Derrière l'écran</span></div>
+    <div class="form-sujet-content textarea-pouvoir">
+      <label id="label_question_joueur_1" for="champ_question_joueur_1">Parle nous un peu de toi (si tu as envie !)</label> <textarea class="textarea-description-little" id="champ_question_joueur_1" name="champ_question_joueur_1"></textarea>
+      <label id="label_question_joueur_2" for="champ_question_joueur_2">Comment nous as-tu trouvé ?</label> <textarea class="textarea-description-little" id="champ_question_joueur_2" name="champ_question_joueur_2"></textarea>
+      <label id="label_question_joueur_3" for="champ_question_joueur_3">Autre chose ?</label> <textarea class="textarea-description-little" id="champ_question_joueur_3" name="champ_question_joueur_3"></textarea>
+    </div>
+    <!-- FIN SECONDE PARTIE : JOUEUR -->
+  </div>
+
+  <div id="formulaire-pouvoir-bloc" class="formulaire-bloc">
+    <!-- TROISIEME PARTIE (OPTIONNELLE) : POUVOIR -->
+    <div id="formulaire-pouvoir" style="">
+      <div class="title"><span>Pouvoir</span></div>
+      <div class="form-sujet-content textarea-pouvoir">
+        <div><label id="label_nom_pouvoir" for="champ_nom_pouvoir">Nom du pouvoir</label> <input type="text" value="" id="champ_nom_pouvoir" name="champ_nom_pouvoir" /></div>
+        <label id="label_effet_pouvoir" for="champ_effet_pouvoir">Effets du pouvoir</label>
+        <textarea class="textarea-description-little" id="champ_effet_pouvoir" name="champ_effet_pouvoir">Description des pouvoirs de votre personnage, ce qu'il est capable de faire (ou non)</textarea>
+        <label id="label_effets_secondaire" for="champ_effets_secondaire">Effets secondaires</label>
+        <textarea class="textarea-description-little" id="champ_effets_secondaire" name="champ_effets_secondaire">Description des contrecoups du pouvoir.</textarea>                                                                                        
+      </div>
+    </div>
+    <!-- FIN TROISIEME PARTIE (OPTIONNELLE) : POUVOIR -->
+  </div>
+
+  <div id="formulaire-histoire-pouvoir" class="formulaire-bloc">
+    <!-- QUATRIEME PARTIE : HISTOIRE -->
+    <div id="formulaire-histoire" style="">
+      <div class="title" id="title-formulaire-histoire"><span>Histoire</span></div>
+      <div class="form-sujet-content">
+        <textarea class="textarea-description" id="champ_histoire" name="champ_histoire"></textarea>
+      </div>
+    </div>  
+    <!-- FIN QUATRIEME PARTIE : HISTOIRE -->
+  </div>
+
+  <div id="formulaire" class="formulaire-bloc">
+    <!-- CINQUIEME PARTIE : PHYSIQUE -->
+    <div class="title"><span>Physique</span></div>
+    <div class="form-sujet-content">
+      <textarea class="textarea-description" id="champ_physique" name="champ_physique">Il n'y a pas de règles particulières : tu peux juste lister ses caractéristiques physiques (du type corpulence, carnation, etc) ou décrire le personnage dans un bloc. Si tu veux donner un titre à tes éléments pour plus de clarté, tu peux utiliser les balises suivantes : <span class="val_groupe">Ton titre ici •</span>.</textarea>                                                                                                                                         
+      <div><label id="label15" for="champ_personnage">Personnage utilisé </label> <input type="text" value="" id="champ_personnage" name="champ_personnage" /></div>
+    </div>
+    <!-- FIN CINQUIEME PARTIE : PHYSIQUE -->
+  </div>
+
+  <div id="formulaire-histoire-pouvoir" class="formulaire-bloc">
+    <!-- SIXIEME PARTIE : MENTAL -->
+    <div class="title"><span>Mental</span></div>
+    <div class="form-sujet-content">
+      <textarea class="textarea-description" id="champ_mental" name="champ_mental">Comme pour le physique, il n'y a pas de règles particulières : il est possible de lister les traits de caractères, les qualités, le défaut ou tout simplement de le décrire dans un bloc. Si tu veux donner un titre à tes éléments pour plus de clarté, tu peux utiliser les balises suivantes : <span class="val_groupe">Ton titre ici •</span></textarea>                                                                                                                                       
+    </div>
+    <!-- FIN SIXIEME PARTIE : MENTAL -->
+  </div>
+
+  <div id="formulaire-liens" class="formulaire-bloc">
+    <!-- SEPTIEME PARTIE (OPTIONNELLE) : LIENS -->
+    <div class="title" id="title-formulaire-liens"><span>Liens</span></div>
+    <div class="form-sujet-content">
+    <!-- BOUTON AJOUTER UN LIEN -->
+    <input type="button" value="Ajouter un lien" id="add-link" />
+      <div id="formSujetLink">
+      </div>
+    </div>
+    <!-- FIN SEPTIEME PARTIE (OPTIONNELLE) : LIENS -->
+  </div>
+
+  <!-- BOUTON DE GENERATION DE LA FICHE -->
+  <p><input type="button" value="Générer le code la fiche" id="genererFiche" /></p>
+
+  <div id="area">
+    <!-- CONTIENDRA LE CODE GENERER DE LA FICHE -->
+  </div>
+  <h3>Version 1.0</h3>
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
