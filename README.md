@@ -39,3 +39,5 @@ L'utilisateur peut ensuite la modifier à sa guise.
 - Ajouter une validation des champs avant la génération de la fiche pour signaler à l'utilisateur s'il a oublié de remplir des champs
 - Ajouter un encart avec le statut "LIBRE" sur les PREDEFINIS pour pouvoir signaler plus rapidement leur disponibilité.
 - Donner la possibilité de créer des scénarios / armes avec un générateur similaire.
+- Ajouter un champ pour contacter le créateur d'un prédéfini / pnj.
+- Ajouter un bouton pour créer automatiquement un sujet avec le contenu de la fiche pour les personnages dans le bon forum.
