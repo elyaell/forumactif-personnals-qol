@@ -4,7 +4,7 @@ A HTML/jQuery bit of code that allow a player to use a different avatar/name/ran
 
 ### How to install in FA
 
-The content of character_switch.js need to be added to the javascript pages of FA. It should be used on "subjects" only.
+The content of ```character_switch.js``` need to be added to the javascript pages of FA. It should be used on "subjects" only.
 
 ### How to use
 
