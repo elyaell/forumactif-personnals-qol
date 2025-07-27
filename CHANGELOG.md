@@ -5,7 +5,7 @@
 - SG : Add missing div in generated sheet
 - Begin : switch character used in a post (SC)
 
-##[Unpublished] - 2025-07-23 :
+## [Unpublished] - 2025-07-23 :
 
 - SG : Cleaning CSS
 - SG : Cleaning comments
