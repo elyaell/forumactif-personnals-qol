@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag System</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <div id="library">
+        <div id="index">
+            <!-- Automatically filled from the h1 and h2 titles tags -->
+        </div>
+
+
+        <div id="pages">
+            <div id="intro-content">
+                <h1 class="index-title">Introduction</h1>
+                <hr />
+                <p>This is the introduction page. It provides an overview of the content and purpose of the document.
+                </p>
+                <p>The index is automatically updated with the name from the h1.index-title content, the id from the
+                    parent id (minus the -content).</p>
+                <p>Subsections are done is the same fashion with the h2 title.</p>
+            </div>
+            <div id="page1-content">
+                <h1 class="index-title">Page 1</h1>
+                <hr />
+                <p>Page 1 contains a collection of items, each represented as a card. Each card has a title, content,
+                    and tags associated with it. The cards can be expanded to show more details.</p>
+                <p>Below is a list of tags that can be used to filter or categorize the items displayed on this page.
+                    Clicking on a tag will filter the items to show only those that match the selected tag.</p>
+                <p>Each item card can be expanded or collapsed by clicking on the title or the expand icon. When
+                    expanded, the card will show additional attributes related to the item.</p>
+                <p>Each card can be accessed by clicking directly on the card name in the index if it's far into the
+                    bottom.</p>
+                <p>Each tag is automatically pulled from the items tags to insure that no tag is forgotten and no tag is
+                    duplicated.</p>
+
+                <div id="tags">
+                    <!-- Automatically filled from the existings tags -->
+                </div>
+
+                <div id="content">
+                    <div class="items">
+                        <div id="item1" class="item">
+                            <div class="item-title-expand">
+                                <h2>Card 1</h2><i class="bi bi-arrows-angle-expand"></i>
+                            </div>
+                            <div class="item-content">
+                                <div class="attribute">Origines: Lorem ipsum dolor sit amet.</div>
+                                <div class="attribute">Magie: Sed do eiusmod tempor incididunt.</div>
+                                <div class="attribute">Localisation: Ut labore et dolore magna aliqua.</div>
+                            </div>
+                            <div class="tags">
+                                <span>tag 1</span>
+                            </div>
+                        </div>
+
+                        <div id="item2" class="item">
+                            <div class="item-title-expand">
+                                <h2>Card 2</h2><i class="bi bi-arrows-angle-expand"></i>
+                            </div>
+                            <div class="item-content">
+                                <div class="attribute">Origines: Lorem ipsum dolor sit amet.</div>
+                                <div class="attribute">Apparence Physique: Consectetur adipiscing elit.</div>
+                                <div class="attribute">Localisation: Ut labore et dolore magna aliqua.</div>
+                            </div>
+                            <div class="tags">
+                                <span>tag 2</span>
+                                <span>tag 6</span>
+                            </div>
+                        </div>
+
+                        <div id="item3" class="item">
+                            <div class="item-title-expand">
+                                <h2>Card 3</h2><i class="bi bi-arrows-angle-expand"></i>
+                            </div>
+                            <div class="item-content">
+                                <div class="attribute">Origines: Lorem ipsum dolor sit amet.</div>
+                                <div class="attribute">Apparence Physique: Consectetur adipiscing elit.</div>
+                                <div class="attribute">Magie: Sed do eiusmod tempor incididunt.</div>
+                            </div>
+                            <div class="tags">
+                                <span>tag 1</span>
+                                <span>tag 3</span>
+                            </div>
+                        </div>
+
+
+                        <div id="item4" class="item">
+                            <div class="item-title-expand">
+                                <h2>Card 4</h2><i class="bi bi-arrows-angle-expand"></i>
+                            </div>
+                            <div class="item-content">
+                                <div class="attribute">Origines: Lorem ipsum dolor sit amet.</div>
+                                <div class="attribute">Apparence Physique: Consectetur adipiscing elit.</div>
+                                <div class="attribute">Localisation: Ut labore et dolore magna aliqua.</div>
+                            </div>
+                            <div class="tags">
+                                <span>tag 4</span>
+                                <span>tag 5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="page2-content">
+                <h1 class="index-title">Page 2</h1>
+                <hr />
+                <p>This is the content for page 2.</p>
+                <h2>Subsection 1</h2>
+                <p>This is the content for subsection of page 2</p>
+            </div>
+            <div id="page3-content">
+                <h1 class="index-title">Page 3</h1>
+                <hr />
+                <p>This is the content for page 3.</p>
+            </div>
+            <div id="page4-content">
+                <h1 class="index-title">Page 4</h1>
+                <hr />
+                <p>This is the content for page 4.</p>
+            </div>
+            <div id="page5-content">
+                <h1 class="index-title">Page 5</h1>
+                <hr />
+                <p>This is the content for page 5.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
