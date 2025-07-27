@@ -3,7 +3,7 @@
 ## [Unpublished] - 2025-07-27
 
 - SG : Add missing div in generated sheet
-- Begin : character replacement
+- Begin : switch character used in a post (SC)
 
 ##[Unpublished] - 2025-07-23 :
 

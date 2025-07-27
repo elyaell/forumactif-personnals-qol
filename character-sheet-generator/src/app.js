@@ -73,7 +73,7 @@ $(function () {
     // IDENTITE
     var identity;
     if (typeFiche == "PNJ") {
-      identity = `<div class="box-predef-container"><div class="sujets-box-infos-predef"><div class="sujets-title-predef ${valGroup}">${$(
+      identity = `<div class="sujets-box-infos-predef"><div class="sujets-title-predef ${valGroup}">${$(
         "#champ_prenom"
       ).val()} ${$(
         "#champ_nom"
@@ -99,7 +99,7 @@ $(function () {
         .find(":selected")
         .text()}</div></div></div></div>`;
     } else {
-      identity = `<div class="box-predef-container"><div class="sujets-box-infos-predef"><div class="sujets-title-predef ${valGroup}">${$(
+      identity = `<div class="sujets-box-infos-predef"><div class="sujets-title-predef ${valGroup}">${$(
         "#champ_prenom"
       ).val()} ${$(
         "#champ_nom"
@@ -193,11 +193,11 @@ $(function () {
 
     if (typeFiche == "PERSONNAGE") {
       $("#area").html(
-        `<textarea name="genCode" id="genCode">${identity}${pouvoir}${descriptions}${histoire}${player}</textarea>`
+        `<textarea name="genCode" id="genCode"><div class="box-predef-container">${identity}${pouvoir}${descriptions}${histoire}${player}</div></textarea>`
       );
     } else {
       $("#area").html(
-        `<textarea name="genCode" id="genCode">${identity}${pouvoir}${descriptions}${histoire}${links}</textarea>`
+        `<textarea name="genCode" id="genCode"><div class="box-predef-container">${identity}${pouvoir}${descriptions}${histoire}${links}</div></textarea>`
       );
     }
   });

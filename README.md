@@ -12,4 +12,4 @@ An HTML/CSS/jQuery page that allows a player to directly generate their characte
 
 ## Character switch in subject
 
-A HTML/jQuery bit of code that allow a player to use a different avatar/name/rank/group color in the current post of a subjet. Used when the original user leave or the account is reused for another character.
+A HTML/jQuery bit of code that allow a player to use a different avatar/name/rank/group color in the current post of a subjet. Used when the original user leave or the account is reused for another character. Adapted on the `viewtopic_body.tpl` of BlankTheme (https://blank-theme.com/).
