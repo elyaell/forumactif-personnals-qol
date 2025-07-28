@@ -19,3 +19,7 @@ When saved, the post will now display the informations of the `switch-profile` i
 When you use FA search members messages, the messages where this code is used will display the current character informations and the html code itself. You may want to hide it and use the switch info too. There is no way to target specifically the search page from the javascript option, so putting it directly in the template seemed like the best option. Adapted for the `search_results_posts.tpl` of BlankTheme (https://blank-theme.com/). Only the part with ```<!-- ELYAELL -->``` elements has been added to the original template of BlankTheme. *I do not claim the rest of the template.*
 
 This way, when searching through the messages of the account, the ones posted under another identity will show up as this identity instead of the current one.
+
+## Areas for Improvement
+* Automatically add the switch-profile when a message is posted : no more old account without identity.
+* Add the replacement when replying to a previous message.
