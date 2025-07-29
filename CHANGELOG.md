@@ -6,7 +6,7 @@
 - Add : switch character used in a post (SC)
 - Begin : display the forums and categories with a tab system (FTAB)
 
-##[Unpublished] - 2025-07-23 :
+## [Unpublished] - 2025-07-23 :
 
 - SG : Cleaning CSS
 - SG : Cleaning comments
