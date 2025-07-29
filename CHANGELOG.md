@@ -3,7 +3,8 @@
 ## [Unpublished] - 2025-07-27
 
 - SG : Add missing div in generated sheet
-- Begin : switch character used in a post (SC)
+- Add : switch character used in a post (SC)
+- Begin : display the forums and categories with a tab system (FTAB)
 
 ##[Unpublished] - 2025-07-23 :
 
