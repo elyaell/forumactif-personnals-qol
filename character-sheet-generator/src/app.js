@@ -13,11 +13,13 @@ $(function () {
   var typeFiche = window.location.search.replace("?", "").split("&");
   if (typeFiche[0].split("=")[1] == "PREDEFINI") {
     // FICHE PREDEFINI
+    $("#champ_descriptions").remove();
     $("#formulaire-joueur").remove();
     $("#title-formulaire-histoire").textContent("Points d'histoire");
     typeFiche = typeFiche[0].split("=")[1];
   } else if (typeFiche[0].split("=")[1] == "PNJ") {
     // FICHE PNJ
+    $("#champ_descriptions").remove();
     $("#formulaire-joueur").remove();
     $("#title-formulaire-histoire").textContent("Détails du personnage");
     $("#formulaire").remove();
@@ -31,7 +33,10 @@ $(function () {
   $("h1").text(`GENERATEUR DE FICHE ${typeFiche}`);
 
   // SWITCH INFORMATIONS FACTIONS
-  var valGroup = $("#champ_sous_groupe").find(":selected").val();
+  var valGroup = $("#champ_politique").find(":selected").val();
+  $("#faction-description>span").css("display", "none");
+  $(`#info-${valGroup}`).css("display", "block");
+
   $("#champ_politique").on("change", function () {
     valGroup = $(this).find(":selected").val();
     $("#faction-description>span").css("display", "none");
@@ -39,6 +44,10 @@ $(function () {
   });
 
   // SWITCH INFORMATIONS GROUPES
+  var value = $("#champ_sous_groupe").find(":selected").val();
+  $("#groupe-description>span").css("display", "none");
+  $(`#info-${value}`).css("display", "block");
+
   $("#champ_sous_groupe").on("change", function () {
     var value = $(this).find(":selected").val();
     $("#groupe-description>span").css("display", "none");
@@ -68,9 +77,58 @@ $(function () {
     });
   });
 
+  // UN SEUL BLOC POUR HISTOIRE / PHYSIQUE / MENTAL
+  $("#champ_descriptions").on("change", function () {
+    if ($(this).is(":checked")) {
+      $("#formulaire-mental").css("display", "none");
+      $("#formulaire-physique").css("display", "none");
+    } else {
+      $("#formulaire-mental").css("display", "block");
+      $("#formulaire-physique").css("display", "block");
+    }
+  });
+
   // GENERATION FICHE
   $("#genererFiche").on("click", function () {
     // IDENTITE
+    var { identity, pouvoir, descriptions, histoire, player, links } =
+      generationHTML(typeFiche, valGroup, lengthLinks);
+
+    /**
+     * -- GENERATION DU CODE HTML FINAL
+     */
+    if (typeFiche == "PERSONNAGE") {
+      $("#area").html(
+        `<textarea name="genCode" id="genCode"><div class="box-predef-container">${identity}${pouvoir}${descriptions}${histoire}${player}</div></textarea>`
+      );
+    } else {
+      $("#area").html(
+        `<textarea name="genCode" id="genCode"><div class="box-predef-container">${identity}${pouvoir}${descriptions}${histoire}${links}</div></textarea>`
+      );
+    }
+  });
+
+  /**
+   * -- REDIRECTION VERS CREATION DE SUJET
+   *
+   */
+  $("#submitSheet").on("click", function () {
+    var { identity, pouvoir, descriptions, histoire, player, links } =
+      generationHTML(typeFiche, valGroup, lengthLinks);
+
+    var message = `<div class="box-predef-container">${identity}${pouvoir}${descriptions}${histoire}${player}${links}</div>`;
+    var subject = `${$("#champ_prenom").val()} ${$("#champ_nom").val()}`;
+
+    localStorage.setItem(
+      "sheet",
+      JSON.stringify({ subject: subject, message: message })
+    );
+
+    // Rediriger vers la nouvelle page
+    window.location.assign("/post?f=13&mode=newtopic");
+  });
+
+  function generationHTML(typeFiche, valGroup, lengthLinks) {
     var identity;
     if (typeFiche == "PNJ") {
       identity = `<div class="sujets-box-infos-predef"><div class="sujets-title-predef ${valGroup}">${$(
@@ -146,7 +204,11 @@ $(function () {
 
     // PHYSIQUE ET MENTAL
     var descriptions;
-    if (typeFiche == "PERSONNAGE" || typeFiche == "PREDEFINI") {
+    if (
+      (typeFiche == "PERSONNAGE" &&
+        $("#champ_descriptions").is(":not(:checked)")) ||
+      typeFiche == "PREDEFINI"
+    ) {
       descriptions = `<div class="sujets-box-predef-column"><div class="sujets-box-predef"><div class="sujets-title-predef-part">physique.</div><div class="sujets-content"> ${$(
         "#champ_physique"
       ).val()}</div></div><div class="sujets-box-predef"><div class="sujets-title-predef-part">mental.</div><div class="sujets-content"> ${$(
@@ -154,7 +216,7 @@ $(function () {
       ).val()}</div></div></div>`;
       descriptions = descriptions.replaceAll(
         "val_groupe",
-        $("#champ_sous_groupe").find(":selected").val()
+        $("#champ_politique").find(":selected").val()
       );
     }
 
@@ -190,15 +252,6 @@ $(function () {
       }
       links += `</div></div></div>`;
     }
-
-    if (typeFiche == "PERSONNAGE") {
-      $("#area").html(
-        `<textarea name="genCode" id="genCode"><div class="box-predef-container">${identity}${pouvoir}${descriptions}${histoire}${player}</div></textarea>`
-      );
-    } else {
-      $("#area").html(
-        `<textarea name="genCode" id="genCode"><div class="box-predef-container">${identity}${pouvoir}${descriptions}${histoire}${links}</div></textarea>`
-      );
-    }
-  });
+    return { identity, pouvoir, descriptions, histoire, player, links };
+  }
 });

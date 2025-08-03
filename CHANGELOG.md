@@ -1,5 +1,12 @@
 # Changelog
 
+## [Unpublished] - 2025-08-03
+
+- SG : remove nesting in css (Mac OS Sierra compatibility)
+- SG : add ability to merge physical/mental and history.
+- SG : add automatic draft creation with forumactif abilites.
+- SG : update to V1.1
+
 ## [Unpublished] - 2025-07-27
 
 - SG : Add missing div in generated sheet

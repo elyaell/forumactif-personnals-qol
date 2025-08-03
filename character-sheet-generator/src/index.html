@@ -3,7 +3,7 @@
 
 <head>
   <!-- GENERATEUR DE FICHE DEVELOPPE PAR ELYAELL (https://github.com/elyaell) -->
-  <!-- VERSION 1.0 - 22/07/2025 -->
+  <!-- VERSION 1.1 - 03/08/2025 -->
   <!-- Développé pour Chronicles (https://chronicles.forumeiros.com/) -->
 
   <meta charset="UTF-8">
@@ -165,18 +165,25 @@
       <!-- FIN TROISIEME PARTIE (OPTIONNELLE) : POUVOIR -->
     </div>
 
-    <div id="formulaire-histoire-pouvoir" class="formulaire-bloc">
+    <div id="formulaire-histoire" class="formulaire-bloc">
       <!-- QUATRIEME PARTIE : HISTOIRE -->
-      <div id="formulaire-histoire" style="">
+      <div id="formulaire-histoire">
         <div class="title" id="title-formulaire-histoire"><span>Histoire</span></div>
         <div class="form-sujet-content">
+
+          <!-- TROIS PARTIES OU UNE SEULE POUR HISTOIRE / PHYSIQUE / MENTAL -->
+          <div class="all_parts">
+            <input type="checkbox" id="champ_descriptions" name="champ_descriptions" /><label id="label_descriptions"
+              for="champ_descriptions">Pas besoin de descriptions séparées, je fais tout dans l'histoire !</label>
+          </div>
+
           <textarea class="textarea-description" id="champ_histoire" name="champ_histoire"></textarea>
         </div>
       </div>
       <!-- FIN QUATRIEME PARTIE : HISTOIRE -->
     </div>
 
-    <div id="formulaire" class="formulaire-bloc">
+    <div id="formulaire-physique" class="formulaire-bloc">
       <!-- CINQUIEME PARTIE : PHYSIQUE -->
       <div class="title"><span>Physique</span></div>
       <div class="form-sujet-content">
@@ -188,7 +195,7 @@
       <!-- FIN CINQUIEME PARTIE : PHYSIQUE -->
     </div>
 
-    <div id="formulaire-histoire-pouvoir" class="formulaire-bloc">
+    <div id="formulaire-mental" class="formulaire-bloc">
       <!-- SIXIEME PARTIE : MENTAL -->
       <div class="title"><span>Mental</span></div>
       <div class="form-sujet-content">
@@ -210,13 +217,19 @@
       <!-- FIN SEPTIEME PARTIE (OPTIONNELLE) : LIENS -->
     </div>
 
-    <!-- BOUTON DE GENERATION DE LA FICHE -->
-    <p><input type="button" value="Générer le code la fiche" id="genererFiche" /></p>
+
+    <p>
+      <!-- BOUTON DE GENERATION DE LA FICHE -->
+      <input type="button" value="Générer le code la fiche" id="genererFiche" />
+
+      <!-- POSTER LA LA FICHE -->
+      <input type="button" value="Poster la fiche" id="submitSheet" />
+    </p>
 
     <div id="area">
       <!-- CONTIENDRA LE CODE GENERER DE LA FICHE -->
     </div>
-    <h3>Version 1.0</h3>
+    <h3>Version 1.1</h3>
   </div>
 
 
