@@ -298,7 +298,7 @@
   font-family:Times New Roman; 
   text-transform:uppercase; 
   line-height:5px;
-  color:#c1c1c1; 
+  color:var(--ts-color); 
   background-image:  linear-gradient(to right, var(--hover-start), var(--hover-end));
   border-radius : 25px;
   width: 50px;
