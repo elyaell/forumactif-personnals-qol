@@ -1,0 +1,129 @@
+/** MISE EN PAGE SUJETS ADMINISTRATIFS **/
+
+.sujets-box {
+  border: #bbbbbb solid 5px;
+  border-radius: 3px;
+}
+  .sujets-title {
+    padding: 5px;
+    text-align: right;
+    background: #3f4463;
+    color: #c3cce3;
+    font-size: 35px;
+    font-family: "Bebas Neue", cursive;
+  }
+
+.sujets-content {
+  font-size: 13px;
+  color: #121212;
+  padding: 20px;
+  text-align: justify;
+}
+
+/** FICHES **/
+
+.sujets-box-predef-lng,
+.sujets-box-predef {
+  border: #bbbbbb solid 5px;
+  border-radius: 3px;
+}
+
+.sujets-box-predef-lng span,
+.sujets-box-predef span {
+    font-weight: bold;
+  }
+
+
+.sujets-box-predef-lng .sujets-content ,
+.sujets-box-predef .sujets-content {    
+    padding: 10px !important;
+    font-size: 14px;
+  }
+  
+.box-predef-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+}
+
+.sujets-box-infos-predef {
+  font-size: 13px;
+  color: #121212;
+  text-align: justify;
+  padding: 0;
+  overflow: hidden;
+  border: #bbbbbb solid 5px;
+  border-radius: 3px;
+}
+
+.sujets-box-infos-predef span {
+    font-weight: bold;
+  }
+
+.sujets-box-infos-predef .sujets-title-predef {
+    padding: 0;
+    text-align: right;
+    background: #bbbbbb;
+    font-size: 35px;
+    font-family: "Bebas Neue", cursive;
+  }
+
+.sujets-box-infos-predef .box-1-predef {
+    outline: #bbb 5px solid;
+    width: 200px;
+    height: 200px;
+  }
+
+.sujets-box-infos-predef .box-2-predef {
+    align-content: center;
+    padding-left: 10px;
+  }
+
+.sujets-box-infos-predef .sujets-content {
+    padding: 0 !important;
+}
+
+.box-predef {
+  display: flex;
+  flex-direction: row;
+  gap: 0;
+}
+
+.sujets-box-predef-column {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  justify-content: space-between;
+}
+.sujets-box-predef-column .sujets-box-predef {
+    width: 50%;
+    height: 300px;
+    overflow: auto;
+  }
+  
+.sujets-box-predef-column  .sujets-content {
+    padding: 5px !important;
+  }
+
+.sujets-title-predef-part {
+  padding: 5px;
+  text-align: left;
+  color: #bbbbbb;
+  font-size: 35px;
+  font-family: "Bebas Neue", cursive;
+}
+
+.links-predef {
+  width: 60px;
+  float: left;
+  margin-right: 10px;
+  margin-top: 10px;
+}
+
+.inks-text-predef {
+  position: relative;
+  margin-bottom: 5px;
+}
