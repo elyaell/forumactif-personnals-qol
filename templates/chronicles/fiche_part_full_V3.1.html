@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+
+  <!-- FICHE DE PARTENARIAT PAR ELYAELL (https://github.com/elyaell) -->
+  <!-- VERSION 3.1 - 07/08/2025 -->
+  <!-- Développé pour Chronicles (https://chronicles.forumeiros.com/) -->
+  <!-- Merci de garder les crédits dans les commentaires et dans le champ des crédits -->
+
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    :root {
+      --col-1: #c0796e;
+      --col-2: #f2a63f;
+      --neutral: #fafbfc;
+      --hover-start: #a066e8;
+      --hover-end: #6c9bf2;
+	  --link-bg: rgba(255, 255, 255, 0.85);
+	  --link-border: #da9b91;
+	  --col-1-accent: #7f3f5c;
+    }
+	
+	body {	}
+	
+	a {
+		text-decoration:none;
+	}
+	
+	.polaroid {
+		height: 500px;
+		margin:0;
+		width: 650px;
+	}
+
+	.polaroid-title {
+		margin-bottom: -40px;
+	}
+	
+	
+	.polaroid-outer {
+		background :var(--neutral);
+		padding : 10px 30px 100px 30px;
+		height: 100%;
+		width: 100%;
+		text-align: right;
+		box-shadow: 0 0 3px var(--col-1-accent);
+	}
+	
+	.polaroid-inner {
+		background: linear-gradient(270deg, var(--col-1), var(--col-2)); 
+		height: 100%;
+		width: 100%;  
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		align-items: center; 
+		gap: 15px;
+	}
+	
+	#pa_bloc_top {
+	  display: flex;
+	  flex-direction: row;
+	  justify-content : space-between;  
+	  gap: 10px;  
+	  margin-top: 20px;
+	  align-items: center;
+	} 
+		
+	#pa_bloc_top a {    
+	  flex: 1 1 0;
+	  align-content: center;
+	  text-align: center;
+	  border-radius: 6px;
+	  margin: 0.2rem;
+	  background-color: var(--link-bg);
+	}
+
+    .content-box>span,
+	.polaroid-outer > span,
+	#pa_bloc_top a span {    
+	  text-transform : uppercase;
+	  color : transparent;
+	  background-image: linear-gradient(270deg, var(--col-1), var(--col-2));
+	  background-clip: text;
+	  -webkit-background-clip: text;
+	  font-family: "Bebas Neue", cursive;
+	  font-size: 25px;
+	}
+
+	
+	.polaroid-outer  >  span span,
+	#pa_bloc_top a:hover span,
+	a {   
+	  color: transparent;
+	  background-image:  linear-gradient(to right, var(--hover-start), var(--hover-end));
+	  background-clip: text;
+	  -webkit-background-clip: text;
+	}
+
+	a {
+		font-weight: bold;
+	}
+	
+	.polaroid-outer > span {
+		font-size : 16px;
+	}
+	
+	.content-box span {
+	  color : transparent;
+	  background-image: linear-gradient(270deg, var(--col-1), var(--col-2));
+	  background-clip: text;
+	  -webkit-background-clip: text;
+		font-size : 20px;
+	}
+	
+	.staff_predef {
+		width: 100%;
+	    display: flex;
+	    justify-content: space-around;
+    	font-size : 40px;
+		color:white;
+		font-family: "Bebas Neue", cursive;
+		height: 50px;
+	    background-image:  linear-gradient(200deg, var(--hover-start), var(--hover-end), transparent, var(--hover-end), var(--hover-start));
+
+	}
+
+	.content-box-2 {
+		width: 100%;
+	}
+	
+	.content-box a {
+	  color : transparent;
+	  background-image:  linear-gradient(to right, var(--hover-start), var(--hover-end));
+	  background-clip: text;
+	  -webkit-background-clip: text;
+    	font-size : 20px;
+		font-family: "Bebas Neue", cursive;
+	}
+	
+	.content-box {
+		margin-top : 20px;
+		border: 2px solid var(--link-border);
+		background-color: var(--link-bg);
+		max-width: 90%;
+		text-align : justify;
+		font-family: 'calibri';
+		border-radius : 6px;
+		padding : 20px;
+	}
+	.content-2 {
+		display:flex;
+		flex-direction: row;
+	}
+	
+	.left,.right {
+		width:50%;
+		display:flex;
+		flex-direction: row;
+		justify-content: space-around;
+		margin-top : 10px;
+	}
+	
+	.left img, .right img {
+		width: 60px;
+		height: 60px;
+		border-radius : 30px;
+	}
+
+    #pa_bloc_credits {
+		font-family: 'calibri';
+		font-size : 13px;
+	}
+  </style>
+</head>
+<body>
+	
+	<div class="polaroid">
+		<div class="polaroid-outer">
+		<span> TEXTE <span>✦</span> TEXTE <span>✦</span> TEXTE</span>
+			<div class="polaroid-inner">
+			
+				<div class="content-box">
+					<span>TEXTE ENCADRE.</span><br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+					<br/><br/><span><a href=""/>LIEN</a><span>
+				</div>
+				
+				<div class="content-box-2">
+					<div class="staff_predef">
+						<span>GAUCHE</span><span>DROITE</span>
+					</div>
+					<div class="content-2">
+						<div class="left">
+							<img src="https://i.ibb.co/DHKHvVQ3/placeholder2.png">
+						</div>
+						<div class="right">
+							<img src="https://i.ibb.co/DHKHvVQ3/placeholder2.png">
+							<img src="https://i.ibb.co/DHKHvVQ3/placeholder2.png">
+							<img src="https://i.ibb.co/DHKHvVQ3/placeholder2.png">
+							<img src="https://i.ibb.co/DHKHvVQ3/placeholder2.png">
+						</div>
+					</div>
+				</div>
+
+				<div id="pa_bloc_credits">
+					<span><a href="" target="_blank">elyaell (c)</a><br/></span>
+				</div>
+
+			</div>
+			
+			<div id="pa_bloc_top">
+				<a href=""><span>LIEN</span></a>
+				<a href=""><span>LIEN</span></a>
+				<a href=""><span>LIEN</span></a>
+				<a href=""><span>LIEN</span></a>  
+				<a href=""><span>LIEN</span></a> 
+			</div>
+
+		</div>
+	</div>
+</body>
+</html>
