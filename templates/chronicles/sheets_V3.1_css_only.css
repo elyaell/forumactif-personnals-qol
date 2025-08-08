@@ -4,24 +4,24 @@
 /**** Merci de garder les crédits dans les commentaires et dans le champ des crédits *****/
 
 .sujets-box {
-  border: #bbbbbb solid 5px;
+  border: var(--admin-border);
+  color: var(--admin-text-color);
+  background: var(--admin-text-background);
   border-radius: 3px;
-  color: var(--col-2-contrast);
-  background: var(--col-1-contrast);
 }
 
+.sujets-title-predef-part,
 .sujets-title {
     padding: 5px;
     text-align: right;
-    background: #3f4463;
-    color: #c3cce3;
-    font-size: 35px;
-    font-family: "Bebas Neue", cursive;
+    background: var(--admin-title-bckg-default);
+    color: var(--admin-text-background);
+    font-size: var(--admin-large-size);
+    font-family: var(--font-admin);
   }
 
 .sujets-content {
-  font-size: 13px;
-  color: #121212;
+  font-size: var(--normal-size);
   padding: 20px;
   text-align: justify;
 }
@@ -30,17 +30,9 @@
 
 .sujets-box-predef-lng,
 .sujets-box-predef {
-  border: #bbbbbb solid 5px;
+  border: var(--admin-border);
   border-radius: 3px;
 }
-
-@media (prefers-color-scheme: dark) {
-  .sujets-box-predef-lng,
-  .sujets-box-predef {
-      background: var(--col-2-contrast);
-    }
-}
-
 
 .sujets-box-predef-lng span,
 .sujets-box-predef span {
@@ -51,7 +43,7 @@
 .sujets-box-predef-lng .sujets-content ,
 .sujets-box-predef .sujets-content {    
     padding: 10px !important;
-    font-size: 14px;
+    font-size: var(--normal-size);
   }
   
 .box-predef-container {
@@ -64,12 +56,11 @@
 }
 
 .sujets-box-infos-predef {
-  font-size: 13px;
-  color: #121212;
+  font-size: var(--normal-size);
   text-align: justify;
   padding: 0;
   overflow: hidden;
-  border: #bbbbbb solid 5px;
+  border: var(--admin-border);
   border-radius: 3px;
 }
 
@@ -77,22 +68,15 @@
     font-weight: bold;
   }
 
-
-@media (prefers-color-scheme: dark) {
-  .sujets-box {
-    background: var(--col-2-contrast);
-  }
-}
-
 .sujets-box-infos-predef .sujets-title-predef {
     padding: 0;
     text-align: right;
-    font-size: 35px;
-    font-family: "Bebas Neue", cursive;
+    font-size: var(--admin-large-size);
+    font-family: var(--font-admin);
   }
 
 .sujets-box-infos-predef .box-1-predef {
-    outline: #bbb 5px solid;
+    border: var(--admin-border);
     width: 200px;
     height: 200px;
   }
@@ -128,13 +112,6 @@
     padding: 5px !important;
   }
 
-.sujets-title-predef-part {
-  padding: 5px;
-  text-align: left;
-  color: #bbbbbb;
-  font-size: 35px;
-  font-family: "Bebas Neue", cursive;
-}
 
 .links-predef {
   width: 60px;
