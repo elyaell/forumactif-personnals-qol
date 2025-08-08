@@ -1,99 +1,73 @@
-/**** CSS SEUL SUJETS ADMINISTRATIFS PAR ELYAELL (https://github.com/elyaell) *****/
-/**** VERSION 3.1 - 07/08/2025 *****/
+/**** CSS SEUL SUJETS ADMINISTRATIFS ET FICHES PAR ELYAELL (https://github.com/elyaell) *****/
+/**** VERSION 3.1.1 - 08/08/2025 *****/
 /**** Développé pour Chronicles (https://chronicles.forumeiros.com/) *****/
 /**** Merci de garder les crédits dans les commentaires et dans le champ des crédits *****/
 
-.sujets-box {
+.sujets-box,
+.sujets-box-infos-predef,
+.sujets-box-predef,
+.sujets-box-predef-lng {
   border: var(--admin-border);
-  color: var(--admin-text-color);
+  color : var(--admin-text-color);
   background: var(--admin-text-background);
   border-radius: 3px;
 }
 
 .sujets-title-predef-part,
-.sujets-title {
+.sujets-title,
+.sujets-title-predef {
     padding: 5px;
     text-align: right;
     background: var(--admin-title-bckg-default);
     color: var(--admin-text-background);
     font-size: var(--admin-large-size);
     font-family: var(--font-admin);
-  }
+}
 
 .sujets-content {
   font-size: var(--normal-size);
-  padding: 20px;
+  padding: 15px;
   text-align: justify;
 }
 
-/** FICHES **/
-
-.sujets-box-predef-lng,
-.sujets-box-predef {
-  border: var(--admin-border);
-  border-radius: 3px;
-}
-
-.sujets-box-predef-lng span,
-.sujets-box-predef span {
-    font-weight: bold;
-  }
-
-
-.sujets-box-predef-lng .sujets-content ,
-.sujets-box-predef .sujets-content {    
-    padding: 10px !important;
-    font-size: var(--normal-size);
-  }
-  
 .box-predef-container {
+  width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 1em;
   justify-content: center;
-  width: 100%;
+  gap: 1em;
   margin: auto;
 }
 
+.box-predef-container > * span {
+  font-weight: bold;
+}
+
 .sujets-box-infos-predef {
-  font-size: var(--normal-size);
   text-align: justify;
   padding: 0;
   overflow: hidden;
-  border: var(--admin-border);
-  border-radius: 3px;
-}
-
-.sujets-box-infos-predef span {
-    font-weight: bold;
-  }
-
-.sujets-box-infos-predef .sujets-title-predef {
-    padding: 0;
-    text-align: right;
-    font-size: var(--admin-large-size);
-    font-family: var(--font-admin);
-  }
-
-.sujets-box-infos-predef .box-1-predef {
-    border: var(--admin-border);
-    width: 200px;
-    height: 200px;
-  }
-
-.sujets-box-infos-predef .box-2-predef {
-    align-content: center;
-    padding-left: 10px;
-  }
-
-.sujets-box-infos-predef .sujets-content {
-    padding: 0 !important;
 }
 
 .box-predef {
   display: flex;
   flex-direction: row;
-  gap: 0;
+  gap: 1em;
+}
+
+.sujets-box-infos-predef .box-1-predef {
+    outline: var(--admin-border);
+    width: 200px;
+    height: 200px;
+    margin-top: 5px;
+  }
+
+.sujets-box-infos-predef .box-2-predef {
+    align-content: center;
+}
+
+.sujets-box-infos-predef .sujets-content {
+    padding: 0 !important;
 }
 
 .sujets-box-predef-column {
@@ -107,11 +81,6 @@
     height: 300px;
     overflow: auto;
   }
-  
-.sujets-box-predef-column  .sujets-content {
-    padding: 5px !important;
-  }
-
 
 .links-predef {
   width: 60px;
