@@ -18,10 +18,16 @@
 .sujets-title-predef {
     padding: 5px;
     text-align: right;
-    background: var(--admin-title-bckg-default);
+    background: var(--col-1);
     color: var(--admin-text-background);
     font-size: var(--admin-large-size);
     font-family: var(--font-admin);
+}
+
+.sujets-subtitle {
+  color:transparent; 
+  background-clip:text;
+  -webkit-background-clip: text; 
 }
 
 .sujets-content {
@@ -41,6 +47,7 @@
 
 .box-predef-container > * span {
   font-weight: bold;
+  background:no-repeat !important;
 }
 
 .sujets-box-infos-predef {
@@ -76,11 +83,12 @@
   gap: 1em;
   justify-content: space-between;
 }
+
 .sujets-box-predef-column .sujets-box-predef {
     width: 50%;
     height: 300px;
     overflow: auto;
-  }
+}
 
 .links-predef {
   width: 60px;
