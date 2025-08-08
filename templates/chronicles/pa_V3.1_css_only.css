@@ -1,5 +1,5 @@
 /**** CSS SEUL PAGE D'ACCUEIL PAR ELYAELL (https://github.com/elyaell) *****/
-/**** VERSION 3.1 - 07/08/2025 *****/
+/**** VERSION 3.1.1 - 07/08/2025 *****/
 /**** Développé pour Chronicles (https://chronicles.forumeiros.com/) *****/
 /**** Merci de garder les crédits dans les commentaires et dans le champ des crédits *****/
 
@@ -35,8 +35,6 @@
     margin-top: 100px;
   }
 }
-
-
 
 #page_accueil #pa_bloc_1_1,
 #pa_bloc_2_1 div,
@@ -78,7 +76,7 @@
 
 #pa_bloc_top a:hover span {   
   color: transparent;
-  background-image:  linear-gradient(to right, var(--hover-start), var(--hover-end));
+  background-image: var(--gradient-new-message);
   background-clip: text;
   -webkit-background-clip: text;
 }
@@ -120,7 +118,7 @@
 
 #event_text a,
 #pa_bloc_3_1 .recent_topics a {
-  background-image:  linear-gradient(270deg, var(--col-1), var(--col-2)) !important;
+  background-image: var(--gradient-new-message);
 }
 
 #pa_bloc_1_1 > span,
@@ -133,7 +131,7 @@
 
 #pa_bloc_1_1 .scenario a {
   color: transparent;
-  background-image:  linear-gradient(270deg, var(--col-1), var(--col-2));
+  background-image: var(--gradient-new-message);
   text-transform : uppercase;
   font-weight: bold;
   background-clip: text;
@@ -197,19 +195,14 @@
   display: none; 
 }
 
-
 #pa_bloc_2_1 a,
 #event_text a {
   text-transform : uppercase;
   font-weight: bold;
   text-align: right;
   display: block;
-}
-
-#pa_bloc_2_1 a:hover,
-#event_text a:hover {
   color: transparent;
-  background-image:  linear-gradient(to right, var(--hover-start), var(--hover-end));
+  background-image: var(--gradient-new-message);
   background-clip: text;
   -webkit-background-clip: text;  
 }
