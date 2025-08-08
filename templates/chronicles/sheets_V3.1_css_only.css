@@ -7,7 +7,14 @@
   border: #bbbbbb solid 5px;
   border-radius: 3px;
 }
-  .sujets-title {
+
+@media (prefers-color-scheme: dark) {
+  .sujets-box {
+    background: var(--col-2-contrast);
+  }
+}
+
+.sujets-title {
     padding: 5px;
     text-align: right;
     background: #3f4463;
@@ -30,6 +37,14 @@
   border: #bbbbbb solid 5px;
   border-radius: 3px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .sujets-box-predef-lng,
+  .sujets-box-predef {
+      background: var(--col-2-contrast);
+    }
+}
+
 
 .sujets-box-predef-lng span,
 .sujets-box-predef span {
@@ -66,10 +81,16 @@
     font-weight: bold;
   }
 
+
+@media (prefers-color-scheme: dark) {
+  .sujets-box {
+    background: var(--col-2-contrast);
+  }
+}
+
 .sujets-box-infos-predef .sujets-title-predef {
     padding: 0;
     text-align: right;
-    background: #bbbbbb;
     font-size: 35px;
     font-family: "Bebas Neue", cursive;
   }
