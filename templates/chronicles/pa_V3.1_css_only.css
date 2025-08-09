@@ -249,7 +249,7 @@
 #pa_staff span,
 #pa_predef span {
   color : var(--link-bg);
-  font-family: var(--font-admin)
+  font-family: var(--font-admin);
   font-size: var(--admin-medium-size);
 }
 
