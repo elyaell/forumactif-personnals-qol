@@ -238,7 +238,6 @@
 .pa_half * {
   min-width: 0;
   min-height: 0;
-  overflow: hidden;
 }
 
 #pa_staff,
