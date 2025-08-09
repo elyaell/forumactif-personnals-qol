@@ -1,5 +1,5 @@
 /**** CSS SEUL PAGE D'ACCUEIL PAR ELYAELL (https://github.com/elyaell) *****/
-/**** VERSION 3.1.1 - 07/08/2025 *****/
+/**** VERSION 3.1.2 - 09/08/2025 *****/
 /**** Développé pour Chronicles (https://chronicles.forumeiros.com/) *****/
 /**** Merci de garder les crédits dans les commentaires et dans le champ des crédits *****/
 
@@ -26,7 +26,9 @@
   grid-column-gap: 5px;
   grid-row-gap: 5px; 
   font-family: calibri;
-  justify-content: center;
+  justify-content: center;  
+  font-size: var(--medium-size);
+  line-height:  var(--medium-size);
 }
 
 @media (orientation: landscape) and (min-width: 600px) {
@@ -70,8 +72,8 @@
   background-image: linear-gradient(270deg, var(--col-1), var(--col-2));
   background-clip: text;
   -webkit-background-clip: text;
-  font-family: "Bebas Neue", cursive;
-  font-size: 25px;
+  font-family: var(--font-admin);
+  font-size: var(--admin-medium-size);
 }
 
 #pa_bloc_top a:hover span {   
@@ -247,8 +249,8 @@
 #pa_staff span,
 #pa_predef span {
   color : var(--link-bg);
-  font-family: "Bebas Neue", cursive;
-  font-size: 30px;
+  font-family: var(--font-admin)
+  font-size: var(--admin-medium-size);
 }
 
 #pa_staff.div_hovered span,
@@ -314,7 +316,6 @@
   text-align: justify;
   border-radius: 6px;
   margin: 0.2rem;
-  font-size: var(--normal-size);
   padding: 2px;
 }
 
@@ -341,7 +342,6 @@
     border-image-slice: 1;
     padding: 4px 0 8px;
     margin-bottom: 5px;  
-  line-height: 12px;
 }
 
 .recTopic-info {
@@ -385,8 +385,8 @@
 
 #pa_bloc_credits {
   grid-area: 6 / 1 / 7 / 5;   
-  font-size: 10px;
-  line-height: 10px;
+  font-size: var(--little-size);
+  line-height: var(--little-size);
   text-align: justify;
   display:none;
 }
