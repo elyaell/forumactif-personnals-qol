@@ -1,5 +1,5 @@
 /**** CSS SEUL SUJETS ADMINISTRATIFS ET FICHES PAR ELYAELL (https://github.com/elyaell) *****/
-/**** VERSION 3.1.1 - 08/08/2025 *****/
+/**** VERSION 3.1.2 - 10/08/2025 *****/
 /**** Développé pour Chronicles (https://chronicles.forumeiros.com/) *****/
 /**** Merci de garder les crédits dans les commentaires et dans le champ des crédits *****/
 
@@ -46,6 +46,7 @@
   margin: auto;
 }
 
+.links-text-predef > span,
 .box-predef-container > * span {
   font-weight: bold;
   background:no-repeat !important;
@@ -91,14 +92,22 @@
     overflow: auto;
 }
 
-.links-predef {
-  width: 60px;
-  float: left;
-  margin-right: 10px;
-  margin-top: 10px;
+.content-link {
+  display: flex;
+  flex-direction: column;
+  gap : 5px;
 }
 
-.inks-text-predef {
-  position: relative;
-  margin-bottom: 5px;
+.links-predef {
+  display: flex;
+  flex-direction: row;
+  gap : 10px;
 }
+
+.links-predef img {
+  height: 60px;
+  width: 60px;
+  border-radius: 100px;
+}
+
+
