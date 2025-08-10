@@ -1,0 +1,163 @@
+.form-top {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	width: 90%;
+}
+
+.form-top .formulaire-bloc {
+	border: var(--admin-border);
+	color: var(--admin-text-color);
+	background: var(--admin-text-background);
+	margin: auto;
+	width: 720px;
+	font-family: "Calibri";
+	margin-bottom: 10px;
+}
+
+.form-top h1 {
+	text-align: center;
+	font-size: 40px;
+	font-family:var(--font-admin);
+	margin: 0;
+}
+
+.form-top h3 {
+	text-align: center;
+	font-family: "Calibri";
+	text-transform: uppercase;
+	font-size: 18px;
+	margin: 0;
+}
+
+.form-top .formulaire-bloc.active .form-sujet-content {
+   display: block !important;
+}
+
+.form-top .formulaire-bloc.active .title span::before {
+	content: "❖" ;
+	display:inline-block;
+	margin-right: 10px;
+}
+
+.form-top .formulaire-bloc .form-sujet-content {
+	display: none;
+}
+
+.form-top .formulaire-bloc .title {
+	text-align: right;  
+	background: var(--col-1);
+	color: var(--admin-text-background);
+	font-size: var(--admin-large-size);
+	font-family: var(--font-admin);
+	padding-right: 15px;
+}
+
+.form-top .textarea-description-little {
+	width: 95%;
+	height: 100px;
+}
+
+
+.form-top .textarea-description {
+	width: 95%;
+	height: 200px;
+}
+
+
+.form-top #genCode {
+	width: 720px;
+	height: 500px;
+}
+
+.form-top #area {
+	width: 720px;
+	padding: 10px;
+	display:none;
+}
+
+
+.form-top .form-sujet-content {
+	font-size: var(--little-size);
+	color: var(--admin-text-color);
+	overflow: auto;
+	padding: 10px 10px 10px 20px;
+	text-align: justify;
+	flex-wrap: wrap;
+	display: flex;
+	flex-direction: row;
+}
+
+
+.form-top label {
+	font-size: var(--medium-size);
+	margin-left: 20px;
+	margin-top: 10px;
+	width: 160px;
+	float: left;
+}
+
+
+.form-top div#formulaire-joueur label {
+	width: 300px;
+}
+
+
+.form-top input,
+.form-top select {
+	width: 300px;
+	background: var(--neutralDark);
+	font-size: var(--normal-size);
+	color: var(--contrastLight) !important;
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	height: 30px;
+	margin-top: 5px;
+}
+
+
+.form-top textarea {
+	background: var(--neutralDark);
+	-moz-border-radius: 5px;
+	border-radius: 5px;
+	resize: none;
+	height: 200px;
+}
+
+/* Au focus */
+
+.form-top :focus:is(input:is([type="text"], [type="password"], .inputbox), textarea) {
+	outline: none;
+	border: 1px solid var(--accentClr);
+}
+
+.form-top div#formulaire-histoire label {
+	width: unset !important;
+	float: unset !important;
+}
+
+.form-top input[type="checkbox"] {
+	width: 20px;
+}
+
+.form-top .all_parts {
+	display: flex;
+	flex-direction: row;
+	align-items: normal;
+}
+
+.form-top #form-group,
+.form-top #form-faction {
+	display: flex;
+	flex-direction: row;
+}
+
+.form-top .info-desc {
+	display: none;
+	font-size: var(--normal-size);
+}
+
+.form-top #add-link {
+	width: 150px !important;
+	margin-left: 10px;
+}
