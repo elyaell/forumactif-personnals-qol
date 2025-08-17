@@ -2,9 +2,9 @@
 /**** VERSION 3.1.0 - 17/08/2025 *****/
 /**** Développé pour Chronicles (https://chronicles.forumeiros.com/) *****/
 /**** Merci de garder les crédits dans les commentaires et dans le champ des crédits *****/
+
 $(function () {
-  if ($(".container-subject").find("#display_annex").length === 0) {
-    console.log("heyy");
+  if ($(".container-subject").find("#display_annex_button").length === 0) {
     var $content = {};
 
     var $posts = $(document).find(".post");
@@ -13,7 +13,7 @@ $(function () {
     $(".container-subject").append(`
       <div class="post post_row post_index" style="display:none">
         <div class="post_profile">
-          <div class="index_subject"></div>
+          <div class="index_subject"><span class="icon_separator"></span></div>
         </div>
         <div class="topic_details">
           <div class="post_message postbody content index_content"></div>
@@ -41,6 +41,8 @@ $(function () {
             `<h2 data-target="${$subtitle}">${$subtitleContent}</h2>`,
           );
         });
+      
+      $(".index_subject").append(`<span class="icon_separator"></span>`);
     });
 
     // H1 : affiche tout son contenu
