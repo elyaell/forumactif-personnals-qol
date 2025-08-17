@@ -1,0 +1,42 @@
+/**** CSS SEUL PASSAGE EN MODE INDEX PAR ELYAELL (https://github.com/elyaell) *****/
+/**** VERSION 3.1.0 - 17/08/2025 *****/
+/**** Développé pour Chronicles (https://chronicles.forumeiros.com/) *****/
+/**** Merci de garder les crédits dans les commentaires et dans le champ des crédits *****/
+
+.index_subject {
+  width: 270px;
+}
+
+.index_subject {
+  text-transform: uppercase;
+  color:var(--admin-text-background);
+  font-family: calibri;
+  font-weight: 100 !important;
+  text-align: center ;
+}
+
+.index_subject h1 {
+  font-size: var(--title-size);
+}
+
+.index_subject h2 {
+ font-size: var(--medium-size);
+ padding-left : 20px;
+  text-align: left ;
+}
+
+.index_subject .active {
+  color: transparent;
+  background-image: var(--gradient-new-message);
+  text-transform: uppercase;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.index_subject .icon_separator {
+  color: transparent;
+  background-clip: text;
+  background-image: linear-gradient(to right, var(--hover-start), var(--hover-end));
+  -webkit-background-clip: text;
+  
+}
