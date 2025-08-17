@@ -10,7 +10,7 @@
 
 .index_subject {
   text-transform: uppercase;
-  color:var(--admin-text-background);
+  color:var(--col-2-contrast);
   font-family: calibri;
   font-weight: 100 !important;
   text-align: center ;
@@ -23,7 +23,7 @@
 .index_subject h2 {
  font-size: var(--medium-size);
  padding-left : 20px;
-  text-align: left ;
+ text-align: left ;
 }
 
 .index_subject .active {
@@ -39,5 +39,4 @@
   background-clip: text;
   background-image: linear-gradient(to right, var(--hover-start), var(--hover-end));
   -webkit-background-clip: text;
-  
 }
