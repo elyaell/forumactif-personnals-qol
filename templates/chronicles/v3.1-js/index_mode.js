@@ -2,7 +2,6 @@
 /**** VERSION 3.1.0 - 17/08/2025 *****/
 /**** Développé pour Chronicles (https://chronicles.forumeiros.com/) *****/
 /**** Merci de garder les crédits dans les commentaires et dans le champ des crédits *****/
-
 $(function () {
   if ($(".container-subject").find("#display_annex_button").length === 0) {
     var $content = {};
@@ -27,27 +26,27 @@ $(function () {
 
       var $title = $post.find(".title_annex").attr("id");
       var $titleContent = $("#" + $title).text();
-
-      $(".index_subject").append(
-        `<h1 data-target="${$title}">${$titleContent}</h1>`,
-      );
+      
+      $(".index_subject").append(`<div id="part-${$title}"><h1 data-target="${$title}">${$titleContent}</h1>`);
 
       $(this)
         .find(".subtitle_annex")
         .each(function () {
           var $subtitle = $(this).attr("id");
           var $subtitleContent = $("#" + $subtitle).text();
-          $(".index_subject").append(
-            `<h2 data-target="${$subtitle}">${$subtitleContent}</h2>`,
+          $("#part-"+$title).append(
+            `<a href="#${$subtitle}"><h2 data-target="${$subtitle}">✦&nbsp;${$subtitleContent}</h2></a>`,
           );
         });
       
-      $(".index_subject").append(`<span class="icon_separator"></span>`);
+      $(".index_subject").append(`</div><span class="icon_separator"></span>`);
     });
 
     // H1 : affiche tout son contenu
     $(".index_subject h1").on("click", function () {
       $(".index_subject h1").removeClass("active");
+      $(".index_subject h2").removeClass("active");
+      
       $(this).addClass("active");
 
       var targetId = $(this).data("target");
@@ -59,13 +58,28 @@ $(function () {
 
     // H2 : idem que H1
     $(".index_subject h2").on("click", function () {
-      var targetId = $(this).data("target");
+      $(".index_subject h1").removeClass("active");
+      $(".index_subject h2").removeClass("active");
 
-      // retrouver tout le bloc de ce h2
+      $(this).closest("h1").addClass("active");
+      $(this).addClass("active");
+      
+      var targetId = $(this).data("target");
       var $parentBlock = $("#" + targetId).closest(".annex_element");
       var html = $parentBlock.prop("outerHTML");
-
+      
       $(".index_content").html(html);
+   
+      setTimeout(function() {
+        const $target = $(".index_content #"+targetId);
+        if ($target.length) {
+          $('html, body').animate({
+            scrollTop: $target.offset().top
+          }, 500);
+        } else {
+          console.warn("Cible introuvable :", targetId);
+        }
+      }, 500);
     });
   }
     
