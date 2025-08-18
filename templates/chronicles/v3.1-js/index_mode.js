@@ -1,5 +1,5 @@
 /**** JAVASCRIPT SEUL PASSAGE EN MODE INDEX PAR ELYAELL (https://github.com/elyaell) *****/
-/**** VERSION 3.1.0 - 17/08/2025 *****/
+/**** VERSION 3.1.1 - 18/08/2025 *****/
 /**** Développé pour Chronicles (https://chronicles.forumeiros.com/) *****/
 /**** Merci de garder les crédits dans les commentaires et dans le champ des crédits *****/
 $(function () {
