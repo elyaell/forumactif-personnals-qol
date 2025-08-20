@@ -2,6 +2,7 @@
 /**** VERSION 3.1.1 - 18/08/2025 *****/
 /**** Développé pour Chronicles (https://chronicles.forumeiros.com/) *****/
 /**** Merci de garder les crédits dans les commentaires et dans le champ des crédits *****/
+
 $(function () {
   if ($(".container-subject").find("#display_annex_button").length === 0) {
     var $content = {};
@@ -26,19 +27,21 @@ $(function () {
 
       var $title = $post.find(".title_annex").attr("id");
       var $titleContent = $("#" + $title).text();
-      
-      $(".index_subject").append(`<div id="part-${$title}"><h1 data-target="${$title}">${$titleContent}</h1>`);
+
+      $(".index_subject").append(
+        `<div id="part-${$title}"><h1 data-target="${$title}">${$titleContent}</h1>`
+      );
 
       $(this)
         .find(".subtitle_annex")
         .each(function () {
           var $subtitle = $(this).attr("id");
           var $subtitleContent = $("#" + $subtitle).text();
-          $("#part-"+$title).append(
-            `<a href="#${$subtitle}"><h2 data-target="${$subtitle}">✦&nbsp;${$subtitleContent}</h2></a>`,
+          $("#part-" + $title).append(
+            `<a href="#${$subtitle}"><h2 data-target="${$subtitle}">✦&nbsp;${$subtitleContent}</h2></a>`
           );
         });
-      
+
       $(".index_subject").append(`</div><span class="icon_separator"></span>`);
     });
 
@@ -46,7 +49,7 @@ $(function () {
     $(".index_subject h1").on("click", function () {
       $(".index_subject h1").removeClass("active");
       $(".index_subject h2").removeClass("active");
-      
+
       $(this).addClass("active");
 
       var targetId = $(this).data("target");
@@ -63,39 +66,46 @@ $(function () {
 
       $(this).closest("h1").addClass("active");
       $(this).addClass("active");
-      
+
       var targetId = $(this).data("target");
       var $parentBlock = $("#" + targetId).closest(".annex_element");
       var html = $parentBlock.prop("outerHTML");
-      
+
       $(".index_content").html(html);
-   
-      setTimeout(function() {
-        const $target = $(".index_content #"+targetId);
+
+      setTimeout(function () {
+        const $target = $(".index_content #" + targetId);
         if ($target.length) {
-          $('html, body').animate({
-            scrollTop: $target.offset().top
-          }, 500);
+          $("html, body").animate(
+            {
+              scrollTop: $target.offset().top,
+            },
+            500
+          );
         } else {
           console.warn("Cible introuvable :", targetId);
         }
       }, 500);
     });
   }
-    
+
   $(document).on("click", "#display_annex_button", function () {
     var $posts = $(".post");
     $posts.css({ display: "none" });
     $(".post_index").css("display", "grid");
-  
-    $(this).attr("id", "display_posts_button").text("Afficher sous forme de messages");
+
+    $(this)
+      .attr("id", "display_posts_button")
+      .text("Afficher sous forme de messages");
   });
-  
+
   $(document).on("click", "#display_posts_button", function () {
     var $posts = $(".post");
     $posts.css({ display: "grid" });
     $(".post_index").css("display", "none");
-  
-    $(this).attr("id", "display_annex_button").text("Afficher sous forme d'index");
+
+    $(this)
+      .attr("id", "display_annex_button")
+      .text("Afficher sous forme d'index");
   });
 });

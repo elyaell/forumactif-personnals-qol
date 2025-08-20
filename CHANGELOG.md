@@ -1,5 +1,10 @@
 # Changelog
 
+## [Unpublished] - 2025-08-20
+
+- Added the `chronicles` folder: this folder now contains all the code developed specifically for this forum.
+- Added `README.md` files: these files have been written to simplify the understanding of the changes and the project structure.
+
 ## [Unpublished] - 2025-08-03
 
 - SG : remove nesting in css (Mac OS Sierra compatibility)

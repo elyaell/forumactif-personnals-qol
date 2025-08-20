@@ -1,19 +1,17 @@
-# Forumactif personnals QOL
+# Forumactif : améliorations de la qualité de vie.
 
-All of the little bits of code added on my forumactif forum to upgrade the qol of the forum.
+Le choix a été fait de rédiger les README.md en français étant donné qu'il s'agit uniquement de projets personnels. Le code est, autant qu'il se peut, en anglais, par choix personnel. Les commentaires et indications seront en anglais également.
 
-## Annexes Library
+Ce dépôt regroupe différents développements indépendants, tous visant à ajouter ou transformer des éléments déjà présents sur les forums proposés par Forumactif.
+Les améliorations ont été créées pour s'insérer aisément dans les templates modifiés par le BlankTheme (https://blank-theme.com/), qui a fait un incroyable travaille de modernisation des templates.
 
-An html/CSS/jQuery page that allows for a complex and interactive library of information on the forum.
+Chaque dossier correspond à un module spécifique, avec sa propre documentation.
+Le dossier "Chronicles" regroupe les éléments développés spécialement pour le forum de roleplay Chronicles (https://chronicles.forumeiros.com/). Si le code vous intéresse, c'est fait pour, servez-vous. Merci de simplement laisser les crédits / créditer ce github.
 
-## Character Sheet Generator
+## Sommaire
 
-An HTML/CSS/jQuery page that allows a player to directly generate their character sheet in the correct format. This keeps players from having to directly manipulate the code as much as possible.
+- [Module 1 : Bibliothèque interactive](./annexes-library/README.md)  
+  ➝ Une page HTML contenant les diverses annexes pour un forum regroupant une quantité importante d'informations. Développé pour Krow.
 
-## Character switch in subject
-
-A HTML/jQuery bit of code that allow a player to use a different avatar/name/rank/group color in the current post of a subjet. Used when the original user leave or the account is reused for another character. Adapted on the `viewtopic_body.tpl` of BlankTheme (https://blank-theme.com/).
-
-
-# To be added
-* Automatic display of categories in tab
+- [Module 2 : Améliorations pour Chronicles](./chronicles/README.md)  
+  ➝ Les éléments développés pour le forum Chronicles (https://chronicles.forumeiros.com/).
