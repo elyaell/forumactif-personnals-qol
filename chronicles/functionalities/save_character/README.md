@@ -15,14 +15,14 @@ Le script se découpe en deux parties :
 
 ## Afficher les informations
 
-- Le script cible tous les éléments `.switch-profile` et les masque.
+- Le script cible tous les éléments `.switch-profile` et les dissimule.
 - Pour chaque élément, il récupère les informations du personnage alternatif (avatar, nom, rang, couleur de groupe).
 - Il applique ces informations au post correspondant en modifiant le DOM.
 - Les sections d’informations utilisateur et de contact sont supprimées pour éviter les incohérences.
 
 ### Modification de templates
 
-#### search_result_posts
+#### `search_result_posts` et `preview_topic_review`
 
 Avantage de **cohérence RPG** : Permet de retrouver facilement quel personnage a posté, indépendamment du compte utilisateur.
 
@@ -30,13 +30,19 @@ Avantage de **cohérence RPG** : Permet de retrouver facilement quel personnage 
 - Utilise un script pour masquer les éléments `.switch-profile` et appliquer les informations du personnage alternatif (nom, couleur de groupe) à l’affichage du résultat.
 - Modifie le DOM pour afficher le nom et la couleur du personnage dans la section des informations du sujet.
 
-#### preview_topic_review
-
 ## Enregistrer les informations
+
+Pour l'enregistrement, le script a été placé directement dans le template : la seule autre solution était de le faire agir sur toutes les pages du forum. 
+
+- Le script dans le template `posting_body` surveille si la checkbox `#keep_character_data` est cochée. Si oui, les informations enregistrées du personnage seront affichées.
+- Le script surveille si l'utilisateur a choisi de garder le profil déjà enregsitré (s'il existe) ou d'ajouter son profil actuel au message.
+- Si le message a initialement des informations enregistrées, un encart avec celles-ci apparaît.
 
 ### Modification de templates
 
 #### posting_body
+
+Voir Enregistrer les informations.
 
 ## Améliorations possibles
 
