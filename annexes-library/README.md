@@ -1,75 +1,57 @@
-# Bibliothèque interactive
+# Annexes Library — Bibliothèque interactive
+
+Ce dossier regroupe les scripts et ressources permettant d’ajouter une bibliothèque interactive pour les annexes et informations volumineuses sur les forums Forumactif.
+
+## Présentation
+
+Ce module a été conçu pour faciliter la navigation et l’organisation des contenus annexes sur les forums riches en informations. Développé à la demande de Krow.
+
+## Structure du dossier
+
+```
+annexes-library/
+├── README.md
+├── css/
+├── js/
+├── templates/
+```
+
+- **css/** : Feuilles de style dédiées à la bibliothèque interactive.
+- **js/** : Scripts JavaScript pour la gestion de l’index, de la navigation et des interactions.
+- **templates/** : Exemples ou modifications de templates nécessaires pour l’intégration du module.
 
 ## Objectif
 
-Créer une page HTML/CSS/jQuery pour service de bibliothèque d'information. Le forum pour lequel la bibliothèque a été envisagée contient un grand nombre d'annexes, qui s'étendent sur plusieurs sujets de plusieurs pages.
+Les axes de développement principaux sont :
 
-Les axes de développement principaux sont :
+- Ne pas avoir à modifier la structure de l'index à chaque ajout d'informations
+- Avoir un système d'étiquettes permettant à l'utilisateur d'avoir une recherche simplifiée
+- Avoir une mise en page simple pour ne pas submerger l'utilisateur d'informations
 
-- ne pas avoir à modifier la structure de l'index à chaque ajout d'informations
-- avoir un système de tags permettant à l'utilisateur d'avoir une recherche simplifiée
-- avoir une mise en page simple pour ne pas submerger l'utilisateur d'informations
-
-## Utilisation dans FA (Forumactif)
+## Utilisation dans Forumactif
 
 ### Utilisation basique :
 
 1. Créer une page HTML
-2. Coller le contenu de `style.css` entre les balises :
+2. Coller le contenu de `style.css` entre les balises `<style>`
+3. Coller le contenu de `app.js` entre les balises `<script type="text/javascript">`
 
-```html
-<style>
-  /* contenu de style.css */
-</style>
-```
+### Réflexions
 
-3. Coller le contenu de `app.js` entre les balises :
+- Le mélange de HTML/CSS/jQuery sur une même page complexifie la lecture.
+- Les pages HTML de Forumactif sont limitées en nombre de caractères et d’entrées.
+- Solutions : héberger le contenu ailleurs, minifier la page web, ou répartir sur plusieurs pages.
 
-```html
-<script type="text/javascript">
-  // contenu de app.js
-</script>
-```
+## Fonctionnalités principales
 
-### Pour aller plus loin
+- Génération automatique de l’index à partir des titres et sous-titres
+- Système d’étiquettes pour filtrer le contenu (démonstration page 1)
+- Navigation dynamique entre les sections
+- Expansion/rétractation des éléments (démonstration page 1)
 
-Cette approche comporte plusieurs points négatifs :
+## Exemple HTML minimal
 
-- Le mélange de HTML/CSS/jQuery sur une même page complexifie la lecture ;
-- Les pages HTML de Forumactif sont tenues à un nombre maximum de caractères, ce qui limitera le nombre d'entrées qu'il est possible d'ajouter. Dans ce cas, il sera nécessaire de charger une autre page HTML contenant d'autres données, mais le processus peut s'avérer inutilement fastidieux et le nombre de pages Forumactif sont limitées également.
-
-Plusieurs solutions sont envisageables :
-
-- Héberger le contenu ou une partie de celui-ci sur un autre site qui n'aura pas ces contraintes (la modification sera alors plus compliquée pour les personnes autres que le créateur) ;
-- Minifier la page web une fois celle-ci finalisée (peut rendre l'ajout d'informations dans le futur difficile).
-
-## Fonctionnalités
-
-### Génération automatique de l'index
-
-- Le script parcourt les titres (`h1.index-title`) et les sous-titre (`h2`) pour créer un index navigable à partir du contenu de la page.
-- La création automatique de l'index permet à l'auteur de se concentrer sur le contenu : dès qu'un nouveau contenu est ajouté, il sera automatiquement ajouté.
-
-### Gestions des étiquettes
-
-- Démonstration sur la page 1.
-- Un système d'étiquettes à été installé : le script parcourt toutes les étiquettes (`.tags span`) présents dans le contenu des textes et les affiche dans une barre de filtres. Chaque étiquette n'apparaît qu'une seule fois, il n'y aura donc pas de duplication.
-- Lorsque l'utilisateur sélectionne une étiquette, seuls les éléments le contenant seront affichés.
-- Si l'utilisateur sélectionne plusieurs étiquettes, seul les éléments répondant à l'intersection des différents critères seront affichés.
-
-### Navigation
-
-- Au chargement initial de la page, la sélection est automatiquement positionnée sur l'introduction.
-- Cliquer sur un élément de l'index ou du sous-index affiche la section correspondante et met à jour l'index et le contenu désormais actifs.
-
-### Expansion des cartes
-
-- Démonstration sur la page 1.
-- Une fonctionnalité d'extension / rétractation permet de faire agrandir / réduire un élément de classe `item`.
-
-#### Exemple HTML minimal
-
-Un exemple HTML minimal qui fonctionne avec le script `app.js` :
+Un exemple HTML minimal compatible avec le script `app.js` :
 
 ```html
 <body>
@@ -106,28 +88,16 @@ Un exemple HTML minimal qui fonctionne avec le script `app.js` :
 
 ## Règles minimales pour les éditeurs
 
-- Si un nom de classe spécifiquement utilisé dans le CSS / JS est modifié, veillez à ce que les fichiers tous les éléments utilisant cette classe soient modifiés en conséquences.
+- Si un nom de classe utilisé dans le CSS/JS est modifié, veillez à mettre à jour tous les éléments concernés.
 
-## Inclusions :
+## Inclusions
 
-Icônes : bootstrap-icons@1.11.3 (à inclure dans `head`)
-
-```html
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css"
-/>
-```
-
-jQuery : 3.6.0.min.js
-
-```html
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-```
+- Icônes : bootstrap-icons@1.11.3 (à inclure dans `<head>`)
+- jQuery : 3.6.0.min.js
 
 ## Zones d'améliorations
 
 - Recherche plein texte en plus des étiquettes
 - Pagination / lazy-loading pour les grandes bibliothèques
 - Exclusion des tags de la recherche
-- Recherche non inclusive pour remonter les éléments répondants à au moins un des critères
+- Recherche non inclusive pour afficher les éléments répondant à au moins un critère

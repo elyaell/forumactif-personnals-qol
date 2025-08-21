@@ -1,6 +1,6 @@
 # Conserver le personnage sur un message
 
-Ce script permet de modifier dynamiquement l’affichage du profil d’un post sur un sujet, afin d’y afficher un autre personnage que celui du compte ayant posté.
+Ce script permet de modifier dynamiquement l’affichage du profil d’un post sur un sujet, afin d’y afficher un autre personnage que celui du compte ayant posté. L'élément majeur pour cette évolution est que le résultat final doit impliquer le moins de manipulations à faire par l'utilisateur pour lui faciliter l'adaptation.
 
 Le script se découpe en deux parties :
 
@@ -41,5 +41,5 @@ Avantage de **cohérence RPG** : Permet de retrouver facilement quel personnage 
 ## Améliorations possibles
 
 - Sauvegarder dans le profil l'utilisation automatique de la fonctionnalité.
-- Sauvegarder directement sur le profil du personnage les différentes identités et lui donner la possibilité de choisir parmi celles-ci.
-- Donner à l'utilisateur la possibilité d'afficher uniquement un avatar pour un message spécifique sans avoir à changer son avatar sur le profil.
+- Sauvegarder directement sur le profil du personnage les différentes identités et donner à l'utilisateur la possibilité de choisir parmi celles-ci.
+- Donner à l'utilisateur la possibilité d'afficher uniquement un avatar différent pour un message spécifique sans avoir à changer son avatar sur le profil.

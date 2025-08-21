@@ -1,13 +1,17 @@
 # Chronicles : améliorations de la qualité de vie
 
-Pour le forum Chronicles (), plusieurs besoins ont été défini :
+Ce dossier regroupe l’ensemble des scripts et ressources développés pour améliorer l’expérience utilisateur sur le forum Chronicles.
 
-- La création d'une page d'accueil ;
-- La création d'une fiche de partenariat ;
-- La création d'un générateur de fiche, permettant à l'utilisateur de remplir le contenu et de générer directement le contenu de celle-ci dans un nouveau sujet, qu'il pourra choisir de publier ou d'enregistrer en brouillon (publication/brouillon sont des fonctionnalités natives de Forumactif) ;
-- Un système d'index sur un sujet permettant d'afficher certains sujets sous la forme d'un index navigable.
+## Présentation
 
-Sont disponibles sur ce dossier :
+Les besoins identifiés pour le forum :
+
+- Création d'une page d'accueil personnalisée
+- Création d'une fiche de partenariat
+- Générateur de fiche : permet à l’utilisateur de remplir le contenu et de générer un nouveau sujet, avec possibilité de publier ou d’enregistrer en brouillon (fonctionnalités natives Forumactif)
+- Système d’index navigable : affiche les messages d'un sujet sous forme d’index
+
+## Structure du dossier
 
 ```
 chronicles/
@@ -17,14 +21,16 @@ chronicles/
 ├── functionalities/
 ```
 
-- `css_addons/` : feuilles de style destinées à l'usage de Chronicles, le CSS de base de Forumactif ayant une limitation de taille.
-- `full_pages/` : pages HTML complètes pour l’accueil, la fiche de partenariat et le générateur de fiche, comprenant les parties HTML/CSS/jQuery sur une seule page.
-- `functionalities/` : scripts pour les fonctionnalités modifiant le comportement natif de Forumactif et nécessitant généralement une intervention dans les templates du forum.
+- **css_addons/** : Feuilles de style dédiées à Chronicles, en complément du CSS natif limité de Forumactif.
+- **full_pages/** : Pages HTML complètes pour l’accueil, la fiche de partenariat et le générateur de fiche, incluant HTML/CSS/jQuery sur une seule page.
+- **functionalities/** : Scripts étendant ou modifiant le comportement natif de Forumactif, nécessitant souvent une modification des templates.
 
-## Sommaire des scripts de fonctionnalités
+## Fonctionnalités principales
 
-- [Module 1 : Index sur sujet](./functionalities/index_mode/README.md)  
-  ➝ Script permettant à un sujet de s'afficher sous la forme de bibliothèque, avec un index à la place du profil et un message contenant le sujet sélectionné de l'index.
+- [Mode indexé](./functionalities/index_mode/README.md)  
+  ➝ Permet d’afficher un sujet sous forme de bibliothèque, avec un index interactif à la place du profil et un affichage dynamique du contenu sélectionné.
 
-- [Module 2 : Sauvegarde du personnage sur un message](./functionalities/save_character/README.md)  
-  ➝ Script permettant de sauvegarder les informations actuelles du profil de manière transparente et choisie par l'auteur du message.
+- [Sauvegarde du personnage](./functionalities/save_character/README.md)  
+  ➝ Permet à l’utilisateur de sauvegarder les informations de son profil directement depuis un message, avec contrôle sur les données enregistrées.
+
+Pour plus de détails sur chaque module, consultez les fichiers README correspondants.
