@@ -38,14 +38,14 @@
   }
 }
 
-#page_accueil #pa_bloc_1_1,
-#pa_bloc_2_1 div,
-#pa_bloc_2_2 a,
-#page_accueil #pa_bloc_3_1,
-#page_accueil #pa_bloc_3_2,
-#pa_bloc_bottom,
-#pa_bloc_top a { 
+.pa_box { 
   box-shadow: 0 0 3px var(--col-1-accent);
+  outlin: ;
+  outline: 2px solid var(--link-border);
+  background-color: var(--link-bg);
+  border-radius: 6px;
+  margin: 0.2rem;
+  padding: 2px;
 }
 
 #pa_bloc_top { 
@@ -85,11 +85,11 @@
 
 #pa_bloc_1_1 { 
   grid-area: 2 / 1 / 3 / 3; 
-  padding: 2px;
-  border-radius: 6px;
-  margin: 0.2rem;
-  outline: 2px solid var(--link-border);
-  background-color: var(--link-bg);
+  /*! padding: 2px; */
+  /*! border-radius: 6px; */
+  /*! margin: 0.2rem; */
+  /*! outline: 2px solid var(--link-border); */
+  /*! background-color: var(--link-bg); */
 }
 
 .pa_inner_overflow {
@@ -140,11 +140,9 @@
 #pa_bloc_1_2::before {
   content: "";
   position: absolute;
-  outline: 2px solid var(--link-border);
   inset: 0;
   background-image: var(--current-event);
   background-size: cover;
-  margin: 0.2rem;
   background-position: center;
   border-radius: 6px;
   transition: opacity 0.5s ease;
@@ -395,13 +393,13 @@
   font-size: var(--medium-size) !important;
   text-align: justify;
   padding: 3px ;
+  margin:0;
 }
 
 #page_accueil .gradient-background {
   border-radius: 5px;
   background: linear-gradient(to right, var(--hover-start), var(--hover-end));
-  padding: 5px;
-  margin: 0 10px 0 0;
+  padding: 1px 8px;
   position: relative;
   height: min-content;
   color: var(--link-bg);
