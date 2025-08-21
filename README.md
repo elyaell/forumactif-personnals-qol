@@ -10,6 +10,8 @@ Ce dépôt regroupe différents scripts et ressources destinés à enrichir et m
 
 Chaque dossier correspond à un module indépendant, accompagné de sa propre documentation.
 
+Pour des raisons de compatibilité avec des navigateurs plus anciens, le CSS n'est pas structuré de manière imbriqué.
+
 ## Structure du dépôt
 
 ```
