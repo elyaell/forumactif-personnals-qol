@@ -16,12 +16,15 @@
 .sujets-title-predef-part,
 .sujets-title,
 .sujets-title-predef {
-    padding: 5px;
-    text-align: right;
-    background: var(--col-1);
-    color: var(--admin-text-background);
-    font-size: var(--admin-large-size);
-    font-family: var(--font-admin);
+  padding: 5px;
+  text-align: right;
+  background: var(--col-1);
+  color: var(--admin-text-background);
+  font-size: var(--admin-large-size);
+  font-family: var(--font-admin);  
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .sujets-subtitle {
