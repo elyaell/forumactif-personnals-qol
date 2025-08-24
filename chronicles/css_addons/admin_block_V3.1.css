@@ -113,4 +113,39 @@
   border-radius: 100px;
 }
 
+/** SCENARIOS **/
+
+.scenario-box {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  gap :  30px;
+  margin-bottom : 30px;
+}
+
+.scenario-infos-rp {
+  width: 70%;
+}
+
+.scenario-infos-hrp {
+  width: 30%;
+}
+
+.scenario-liens,
+.scenario-infos-rp, 
+.scenario-infos-hrp {
+  background-color: var(--admin-text-background);
+  outline: var(--admin-border);
+  border-radius : 6px;
+  color: var(--admin-text-color);
+  padding:10px;
+  text-align: justify;
+  font-family: Calibri;
+}
+
+.scenario-liens span {
+  display : block;
+  text-align: left;
+  text-transform: uppercase;
+}
 
