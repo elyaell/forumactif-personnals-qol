@@ -1,5 +1,5 @@
 /**** CSS SEUL SWITCH CHARACTER PAR ELYAELL (https://github.com/elyaell) *****/
-/**** VERSION 3.1.0 - 11/08/2025 *****/
+/**** VERSION 2.0.0 - 26/08/2025 *****/
 /**** Développé pour Chronicles (https://chronicles.forumeiros.com/) *****/
 /**** Merci de garder les crédits dans les commentaires et dans le champ des crédits *****/
 
@@ -16,20 +16,14 @@
 	background-color : var(--neutral);
 }
 
-.character_data_box
-#character_data,
-.character_data_box
-#current_character_data {
+.character_data_box .character_data {
 	width : auto;
 	height: 80px;
 	cursor : pointer;
 	padding:10px;
 }
 
-.character_data_box
-#character_data .switch-profile,
-.character_data_box
-#current_character_data .switch-profile {
+.character_data_box .character_data .switch-profile {
 	display: grid;
 	grid-template-columns: 50px 1fr;
 	grid-template-rows: repeat(2, 20px);
@@ -37,27 +31,23 @@
 	grid-row-gap: 0px; 
 }
 
-.character_data_box  #character_data .switch-profile img,
-.character_data_box #current_character_data .switch-profile img {
+.character_data_box .character_data .switch-profile img {
 	width : 50px;
 	height : 50px;
 	border-radius : 100px;
 	grid-area: 1 / 1 / 3 / 2; 
 }
 
-.character_data_box  #character_data .switch-profile .switch-name,
-.character_data_box #current_character_data .switch-profile .switch-name {
+.character_data_box .character_data .switch-name {
 	font-weight : bold; 
 	grid-area: 1 / 2 / 2 / 3; 
 }
 
-.character_data_box  #character_data .switch-profile .switch-groupe,
-.character_data_box #current_character_data .switch-profile .switch-groupe {
+.character_data_box .character_data .switch-groupe {
 	display : none;
 }
 
 
-.character_data_box  #character_data .switch-profile .switch-rank,
-.character_data_box #current_character_data .switch-profile .switch-rank {  
+.character_data_box .character_data .switch-rank {  
 	grid-area: 2 / 2 / 3 / 3; 
 }
