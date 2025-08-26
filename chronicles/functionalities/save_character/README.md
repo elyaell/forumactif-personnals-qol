@@ -15,7 +15,7 @@ Le script se découpe en deux parties :
 
 ## Afficher les informations
 
-- Le script cible tous les éléments `.switch-profile` et les dissimule.
+- Le script cible tous les éléments `switch` et les dissimule.
 - Pour chaque élément, il récupère les informations du personnage alternatif (avatar, nom, rang, couleur de groupe).
 - Il applique ces informations au post correspondant en modifiant le DOM.
 - Les sections d’informations utilisateur et de contact sont supprimées pour éviter les incohérences.
@@ -26,9 +26,20 @@ Le script se découpe en deux parties :
 
 Avantage de **cohérence RPG** : Permet de retrouver facilement quel personnage a posté, indépendamment du compte utilisateur.
 
-- Ajoute une variable `poster_name` pour cibler le nom du personnage dans l’interface.
-- Utilise un script pour masquer les éléments `.switch-profile` et appliquer les informations du personnage alternatif (nom, couleur de groupe) à l’affichage du résultat.
-- Modifie le DOM pour afficher le nom et la couleur du personnage dans la section des informations du sujet.
+```html
+[...]   
+	<!-- ELYAELL : Ajout variable poster_name pour cibler plus facilement le nom du personnage -->
+	<span class="poster_name">{searchresults.L_TOPIC_BY} {searchresults.POSTER_NAME}</span><br />
+[...]
+```
+
+```html
+[...]
+	<!-- ELYAELL : ajout variable poster_name pour cibler mieux le nom -->
+	<span> {postrow.displayed.L_TOPIC_BY} <span class="poster_name"> {postrow.displayed.POSTER_NAME} </span> {postrow.displayed.L_TOPIC_ON} {postrow.displayed.POST_DATE}</span>
+[...]
+```
+
 
 ## Enregistrer les informations
 
@@ -39,6 +50,8 @@ Pour l'enregistrement, le script a été placé directement dans le template : l
 - Si le message a initialement des informations enregistrées, un encart avec celles-ci apparaît.
 
 ### Modification de templates
+
+Dans le template 
 
 #### posting_body
 
