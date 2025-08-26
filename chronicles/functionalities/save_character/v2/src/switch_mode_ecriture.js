@@ -1,3 +1,8 @@
+/**** JAVASCRIPT UTILISATION DU SWITCH EN LECTURE PAR ELYAELL (https://github.com/elyaell) *****/
+/**** VERSION 2.0 - 26/08/2025 *****/
+/**** Développé pour Chronicles (https://chronicles.forumeiros.com/) *****/
+/**** Merci de garder les crédits dans les commentaires et dans le champ des crédits *****/
+
 // PLACEMENT : Sur toutes les pages
 
 // by elyaell (https://github.com/elyaell)
