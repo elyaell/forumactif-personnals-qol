@@ -13,7 +13,7 @@ Le script se découpe en deux parties :
 - **Personnalisation des posts** : Utile pour les forums RPG où un utilisateur peut incarner plusieurs personnages sur un même compte.
 - **Continuité des messages** : Si un compte est recyclé pour un autre personnage, on évite une perte de contexte. Les messages écrits par l'ancien personnage continueront d'apparaître sous l'avatar, le nom et la couleur de cet ancien personnage.
 
-## Afficher les informations
+## Afficher les informations 
 
 - Le script cible tous les éléments `switch` et les dissimule.
 - Pour chaque élément, il récupère les informations du personnage alternatif (avatar, nom, rang, couleur de groupe).
