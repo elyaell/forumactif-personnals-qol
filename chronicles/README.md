@@ -30,7 +30,10 @@ chronicles/
 - [Mode indexé](./functionalities/index_mode/README.md)  
   ➝ Permet d’afficher un sujet sous forme de bibliothèque, avec un index interactif à la place du profil et un affichage dynamique du contenu sélectionné.
 
-- [Sauvegarde du personnage](./functionalities/save_character/README.md)  
-  ➝ Permet à l’utilisateur de sauvegarder les informations de son profil directement depuis un message, avec contrôle sur les données enregistrées.
+- [Sauvegarde du personnage V2](./functionalities/save_character/v2/README.md)  
+  ➝ Permet à l’utilisateur de sauvegarder les informations de son profil directement depuis un message. La version 2 comprend l'affichage dynamique du profil déjà sauvegardé et du profil courant.
+  
+- [Sauvegarde du personnage V3](./functionalities/save_character/v3/README.md)  
+  ➝ Permet à l’utilisateur de sauvegarder les informations de son profil directement depuis un message. La version 3 comprend la récupération de la liste des personnages de l'utilisateur sur sa feuille rpg, et l'affichage du tableau de personnes sous la forme de cartes sélectionnables.
 
 Pour plus de détails sur chaque module, consultez les fichiers README correspondants.
