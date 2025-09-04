@@ -1,11 +1,19 @@
-/**** JAVASCRIPT UTILISATION DU SWITCH EN LECTURE PAR ELYAELL (https://github.com/elyaell) *****/
-/**** VERSION 2.0 - 26/08/2025 *****/
+/**** JAVASCRIPT ECRITURE SWITCH PAR ELYAELL (https://github.com/elyaell) *****/
+/**** VERSION 3.0.0 - 26/08/2025 *****/
 /**** Développé pour Chronicles (https://chronicles.forumeiros.com/) *****/
 /**** Merci de garder les crédits dans les commentaires et dans le champ des crédits *****/
 
 // PLACEMENT : Sur toutes les pages
 
+// by elyaell (https://github.com/elyaell)
+
 $(function () {
+  
+    // from Skaemp (https://crushcrushcrush.actifforum.com/)
+  $('a[href*="/u"] span').each(function(){
+      var color = $(this).css("color"); 
+      $(this).closest('.color_character').css("background-color", color);
+  });
   
   // Masquer les switch
   $("switch").css('display', 'none');
@@ -36,8 +44,8 @@ $(function () {
     $post.find('.block_color_character .post_rank').html(data.rank);
 
     // couleur pseudo + background
-    $post.find('.block_color_character .post_pseudo a span').css("color", `#${data.color}`);
-    $post.find('.color_character').css("background-color", `#${data.color}`);
+    $post.find('.block_color_character .post_pseudo a span').css("color", `${data.color}`);
+    $post.find('.color_character').css("background-color", `${data.color}`);
 
     // cacher l'userinfo
     $post.find(".post_userinfo").hide();
@@ -48,7 +56,7 @@ $(function () {
     const $el = $switch.closest('.postbody, .post_search');
 
     $el.find(".poster_name strong").html(data.name);
-    $el.find(".poster_name span").css('color', `#${data.color}`);
+    $el.find(".poster_name span").css('color', `${data.color}`);
   }
 
   // --------- Application globale ----------

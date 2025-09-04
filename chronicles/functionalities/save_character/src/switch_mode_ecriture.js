@@ -1,5 +1,5 @@
-/**** JAVASCRIPT UTILISATION DU SWITCH EN LECTURE PAR ELYAELL (https://github.com/elyaell) *****/
-/**** VERSION 2.0 - 26/08/2025 *****/
+/**** JAVASCRIPT ECRITURE SWITCH PAR ELYAELL (https://github.com/elyaell) *****/
+/**** VERSION 3.0.0 - 26/08/2025 *****/
 /**** Développé pour Chronicles (https://chronicles.forumeiros.com/) *****/
 /**** Merci de garder les crédits dans les commentaires et dans le champ des crédits *****/
 
@@ -7,88 +7,140 @@
 
 // by elyaell (https://github.com/elyaell)
 
-$(function () {
-  
-  // GET INFOS OF CURRENT CHARACTER
-  var switch_avatar = _userdata["avatar_link"];
-  var switch_name   = _userdata["username"];
-  var switch_rank   = _lang["rank_title"];
-  var switch_group  = _userdata["groupcolor"];
-  
-  // DISPLAY INFOS OF CONNECTED CHARACTER
-  $("#connected_character").html(`<div class="switch-profile"><img src="${switch_avatar}" /><span class="switch-name">${switch_name}</span><span class="switch-groupe">${switch_group}</span><span class="switch-rank">${switch_rank}</span></div>`);                     
-     
-  const regex = /<switch[^>]*>.*?<\/switch>/g;
-  
-  // DISPLAY INFOS OF CURRENT SAVED CHARACTER      
-  var has_already_info = $('#text_editor_textarea').val().match(regex);
-  if (has_already_info) { 
-    const switch_name   = $(has_already_info[0]).data("name");
-    const switch_avatar = $(has_already_info[0]).data("avatar");
-    const switch_group  = $(has_already_info[0]).data("group-color");
-    const switch_rank   = $(has_already_info[0]).data("rank");
-    
-    const html = `
-      <div class="switch-profile">
-        <img src="${switch_avatar}" alt="${switch_name}" />
-        <span class="switch-name">${switch_name}</span>
-        <span class="switch-groupe">${switch_group}</span>
-        <span class="switch-rank">${switch_rank}</span>
-      </div>
-    `;
-    $("#saved_character").html(html);
-    
-    var remove_info = $('#text_editor_textarea').val().replace(regex, ''); 
-    $('#text_editor_textarea').html(remove_info); 
-    $("#keep_character_data").prop('checked', true);
-    $("#saved_character").addClass("active");
-  } else { 
-    $("#character_data").addClass("active");
-    $(".character_data_box").css('display', 'none');
+$(function() {
+  if ($("#text_editor_textarea").length === 0) return; // sécurité
+  const $box = $('#rpg_sheet_box');
+
+  function appendCharacterCard($box, character) {
+    if ($box.find(`.character-card[data-name="${character.name}"]`).length > 0) {
+        return;
+    }
+
+    const $card = createCharacterCard(character);
+    $box.append($card);
   }
   
+  // -------------------------
+  // UTILITAIRES
+  // -------------------------
+  function createCharacterCard({ name, avatar, group_color, rank }) {
+    return $(`
+      <div class="character-card" data-name="${name}" data-rank="${rank}" data-group-color="${group_color}">
+        <img src="${avatar}" alt="${name}">
+        <span class="character-name" style="color:${group_color}; font-weight:bold;">${name}</span><br>
+        <span class="character-rank">${rank}</span>
+      </div>
+    `);
+  }
+  
+  // -------------------------
+  // CHOIX
+  // -------------------------
   $('#keep_character_data').on('change', function() {
-    if ($(this).is(":checked")) {
-      $(".character_data_box").css('display', 'flex');
-    } else {
-      $(".character_data_box").css('display', 'none');
-    }
-  });                   
+    $("#rpg_sheet_box").css('display', this.checked ? 'flex' : 'none');
+  });  
   
-  // BUTTONS FUNCTIONALITY
-  $("#saved_character").on('click', function() {
-     $("#connected_character").removeClass('active');
-     $("#saved_character").addClass('active');
+  // -------------------------
+  // CLIC SUR UNE CARTE
+  // -------------------------
+  $('#rpg_sheet_box').on('click', '.character-card', function() {
+    $('.character-card').removeClass('active');
+    $(this).addClass('active');
   });
+    
   
-  $("#connected_character").on('click', function() {
-     $("#saved_character").removeClass('active');
-     $("#connected_character").addClass('active');
-  });
+  // -------------------------
+  // 1. PERSONNAGE DÉJÀ PRÉSENT DANS LE TEXTAREA
+  // -------------------------
+  const regex = /<switch[^>]*>.*?<\/switch>/g;
+  const textareaVal = $('#text_editor_textarea').val();
+  const hasSwitch = textareaVal.match(regex);
   
-  $('#button_message_post').on('click', function() {
-    if ($("#keep_character_data").is(":checked")) {
-      var text = $('#textarea_content textarea').val();
-      
-      var $profile = $(".character_data_box .active"); 
-      const switch_name   = $profile.find(".switch-name").text().trim();
-      const switch_avatar = $profile.find("img").attr("src");
-      const switch_group  = $profile.find(".switch-groupe").text().trim();
-      const switch_rank   = $profile.find(".switch-rank").text().trim();
+  if (hasSwitch) {
+    const $temp = $(hasSwitch[0]);
+    const existingCharacter = {
+      name: $temp.data('name'),
+      avatar: $temp.data('avatar'),
+      group_color: $temp.data('group-color'),
+      rank: $temp.data('rank')
+    };
+    
+    const $existingCard = createCharacterCard(existingCharacter);
+    $existingCard.addClass('current');
+    $box.append($existingCard);
+    $('#text_editor_textarea').val(textareaVal.replace(regex, ''));
+    
+    $('.character-card').removeClass('active');
+    $existingCard.addClass('active');
+    
+    $('#rpg_sheet_box').css('display', 'flex');
+    $('#keep_character_data').click();
+  }
+  
+  // -------------------------
+  // 2. PERSONNAGE CONNECTÉ
+  // -------------------------
+  const connectedCharacter = {
+    name: _userdata["username"],
+    avatar: _userdata["avatar_link"],
+    group_color: "#"+_userdata["groupcolor"],
+    rank: _lang["rank_title"]
+  };
+  
+   appendCharacterCard($box, connectedCharacter);
+  
+  // -------------------------
+  // 3. AJOUT DES PERSONNAGES DE LA FICHE DE JEU
+  // -------------------------
+  
+  const userId = _userdata["user_id"];
+  const rpgUrl = `/u${userId}rpgsheet`;
 
-      // <switch>
-      const $switchEl = `
-        <switch 
-          data-name="${switch_name}" 
-          data-avatar="${switch_avatar}" 
-          data-group-color="${switch_group}" 
-          data-rank="${switch_rank}">
-        </switch>
-      `;
+  $.get(rpgUrl, function(data) {
+    const $html = $(data);
+    const $rows = $html.find("#rpg-liste-des-personnages tr");
+  
+    if ($rows.length) {
+      $rows.slice(1).each(function() {
+        const $cells = $(this).find("td").slice(1);
+        const name    = $cells.eq(0).text().trim();
+        const avatar      = $cells.eq(1).text().trim();
+        const group_color = $cells.eq(2).text().trim() || '#000';
+        const rank        = $cells.eq(3).text().trim();
         
-      $('#text_editor_textarea').val($switchEl + text);
-      $('#textarea_content textarea').val($('#text_editor_textarea').val());
+        if (name.length == 0) {
+          return true;
+        }
+ 
+        appendCharacterCard($box, {name, avatar, group_color, rank});
+      });
     }
+  });
+  
+  // -------------------------
+  // 4. ENREGISTRER LE MESSAGE
+  // -------------------------
+  $('#button_message_post').on('click', function() {
+  if (!$("#keep_character_data").prop("checked")) {
+    $('#real_button_message_post').click();
+    return;
+  }
+                                   
+    const text = $('#textarea_content textarea').val();
+    const $activeCard = $('.character-card.active');
+                                   
+    const switchHTML = `
+      <switch
+        data-name="${$activeCard.data('name')}"
+        data-avatar="${$activeCard.find('img').attr('src')}"
+        data-group-color="${$activeCard.data('group-color')}"
+        data-rank="${$activeCard.data('rank')}">
+      </switch>
+    `;
+
+    $('#text_editor_textarea').val(switchHTML + text);
+    $('#textarea_content textarea').val($('#text_editor_textarea').val());
+
     $('#real_button_message_post').click();
   });
 

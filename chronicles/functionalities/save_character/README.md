@@ -13,7 +13,31 @@ Le script se découpe en deux parties :
 - **Personnalisation des posts** : Utile pour les forums RPG où un utilisateur peut incarner plusieurs personnages sur un même compte.
 - **Continuité des messages** : Si un compte est recyclé pour un autre personnage, on évite une perte de contexte. Les messages écrits par l'ancien personnage continueront d'apparaître sous l'avatar, le nom et la couleur de cet ancien personnage.
 
-## Afficher les informations 
+## Mise en place
+
+# Au préalable
+
+Le HTML non sécurisé pour tous les utilisateurs doit être autorisé.
+
+# Créer le tableau de personnages
+
+La nouvelle version du script permet de gérer dynamiquement les personnages disponibles pour un utilisateur.
+
+Dans Forumactif, `Modules` > `Jeux de rôle` > `Gestion des champs`, cocher `Oui` pour `Activer la feuille de personnage`.
+Dans les `Champs`, cliquer sur `Ajouter un champ`.
+
+Le champ `Nom du champ` est **important**, car il s'agit de l'id par lequel vous pourrez retrouver votre liste de personnages ensuite, par exemple `Liste des personnages` deviendra l'id `#liste-des-personnages`.
+Le type doit être `Tableau`.
+Il est possible d'ajouter jusqu'à 512 lignes, donc deux ou trois est un bon départ.
+Les colonnes comporteront les informations du personnage, ici : nom/prénom, avatar, couleur, rang.
+La case `Visible dans les forums` est à **décocher** pour ne pas encombrer les messages.
+
+Plus qu'à enregistrer.
+
+Dans votre profil, `Personnages` > `Générer`. 
+Il n'y aura plus qu'à remplir le tableau avec les éléments textuels.
+
+## Afficher les informations
 
 - Le script cible tous les éléments `switch` et les dissimule.
 - Pour chaque élément, il récupère les informations du personnage alternatif (avatar, nom, rang, couleur de groupe).
@@ -42,11 +66,14 @@ Avantage de **cohérence RPG** : Permet de retrouver facilement quel personnage 
 
 ## Enregistrer les informations
 
-Pour l'enregistrement, le script a été placé directement dans le template : la seule autre solution était de le faire agir sur toutes les pages du forum. 
-
-- Le script dans le template `posting_body` surveille si la checkbox `#keep_character_data` est cochée. Si oui, les informations enregistrées du personnage seront affichées.
-- Le script surveille si l'utilisateur a choisi de garder le profil déjà enregsitré (s'il existe) ou d'ajouter son profil actuel au message.
-- Si le message a initialement des informations enregistrées, un encart avec celles-ci apparaît.
+- Vérifie la présence de l’éditeur et cible le conteneur des cartes.
+- Crée des cartes de personnages avec une fonction utilitaire, en évitant les doublons.
+- Ajoute la carte du personnage connecté en début de liste.
+- Si un <switch> existe déjà dans le textarea, crée une carte correspondante et la rend active.
+- Charge les autres personnages depuis la fiche RPG via AJAX et les ajoute sous forme de cartes.
+- Gère le clic sur une carte pour la sélectionner/désélectionner.
+- Sur envoi de message, récupère la carte active et injecte le <switch> correspondant dans le textarea.
+- Bouton pour désélectionner toutes les cartes.
 
 ### Modification de templates
 
@@ -55,15 +82,23 @@ Pour l'enregistrement, le script a été placé directement dans le template : l
 Entre `<!-- END switch_subject -->` et `<!-- BEGIN switch_description -->`, pour afficher les miniatures des profils disponibles (le profil actuel du compte + celui éventuellement déjà sauvé sur le message) :
 
 ```html
-<dl>
-	<dt></dt>
-	<dd><label><input type="checkbox" id="keep_character_data" name="keep_character_data" />&nbsp;Conserver les informations du personnage pour ce message</label><br /><small>Si l'option est cochée, 
-	les informations suivantes seront fixées pour ce message et ne seront plus mises à jour : pseudo du personnage, rang, couleur du groupe et image de l'avatar.</small></dd>
-</dl>
-<dl>
-	<dt></dt>
-	<dd class="character_data_box"><div id="current_character_data" name="current_character_data"></div><div id="character_data" name="character_data"></div></dd>
-</dl>
+	<dl>
+	  <dt><label>Choix du personnage</label></dt>
+	  <dd>              
+		
+		<!-- BEGIN switch_rpg -->
+		<!-- BEGIN rpg_fields -->
+		<div class="profile_field">
+		<label>{switch_rpg.rpg_fields.F_NAME} :</label>
+			<field>{switch_rpg.rpg_fields.F_VALUE_NEW}</field>
+		</div>
+		<!-- END rpg_fields -->
+		<!-- END switch_rpg -->
+		
+		<div id="rpg_sheet_box" class="characters-container"></div>
+		<div class="button" id="deselect_character" style="margin-top:10px;">Désélectionner</div>
+	  </dd>
+	</dl>
 ```
 
 Entre `<!-- END switch_publish -->` et `<!-- BEGIN switch_signature -->`, un faux bouton a été mis en place pour ajouter de manière transparente le switch lors de l'enregistrement :
@@ -77,5 +112,4 @@ Entre `<!-- END switch_publish -->` et `<!-- BEGIN switch_signature -->`, un fau
 ## Améliorations possibles
 
 - Sauvegarder dans le profil l'utilisation automatique de la fonctionnalité.
-- Sauvegarder directement sur le profil du personnage les différentes identités et donner à l'utilisateur la possibilité de choisir parmi celles-ci.
 - Donner à l'utilisateur la possibilité d'afficher uniquement un avatar différent pour un message spécifique sans avoir à changer son avatar sur le profil.
