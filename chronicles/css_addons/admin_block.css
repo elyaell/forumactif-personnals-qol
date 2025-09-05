@@ -132,7 +132,7 @@
   color: var(--admin-text-color);
   padding:10px;
   text-align: justify;
-  font-family: Calibri;
+  font-family: var(--font-text);
 }
 
 .scenario-liens span {
