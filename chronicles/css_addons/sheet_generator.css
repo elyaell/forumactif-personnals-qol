@@ -16,7 +16,7 @@
 	background: var(--admin-text-background);
 	margin: auto;
 	width: 720px;
-	font-family: "Calibri";
+	font-family: var(--font-text);
 	margin-bottom: 10px;
 }
 
@@ -29,7 +29,7 @@
 
 .form-top h3 {
 	text-align: center;
-	font-family: "Calibri";
+	font-family: var(--font-text);
 	text-transform: uppercase;
 	font-size: 18px;
 	margin: 0;
