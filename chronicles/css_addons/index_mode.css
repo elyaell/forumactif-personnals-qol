@@ -11,7 +11,7 @@
 .index_subject {
   text-transform: uppercase;
   color:var(--col-2-contrast);
-  font-family: calibri;
+  font-family: var(--font-text);
   font-weight: 100 !important;
   text-align: center ;
 }
