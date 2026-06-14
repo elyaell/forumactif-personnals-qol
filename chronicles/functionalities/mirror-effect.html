@@ -1,0 +1,36 @@
+<style>
+.swap {
+    display: inline-flex;
+    gap: 2rem;
+    font-family: serif;
+}
+
+.left, .right {
+    display: inline-block;
+    transition: transform 1s ease;
+    transform-origin: center;
+}
+
+.left {
+    transform: scaleX(1);
+}
+
+.right {
+    transform: scaleX(-1);
+}
+
+.swap:hover {
+    .left {
+        transform: scaleX(-1);
+    }
+    
+    .right {
+        transform: scaleX(1);
+    }
+}
+</style>
+
+<div class="swap">
+    <span class="left">l'instinct</span>
+    <span class="right">se meurt</span>
+</div>
